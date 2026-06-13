@@ -201,7 +201,7 @@ export default function Home() {
 
       {/* SOLUTIONS */}
       <section className="py-10 bg-white">
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-[1280px] mx-6 sm:mx-10 lg:mx-16">
           <p className="text-center text-[#4F46E5] font-bold text-[12px] uppercase tracking-wide">
             Our Core Solutions
           </p>
@@ -307,7 +307,7 @@ export default function Home() {
       </section>
 
       {/* TECHNOLOGY */}
-      <section className="max-w-[1280px] mx-auto px-6 py-2">
+      <section className="max-w-[1280px] mx-6 sm:mx-10 lg:mx-16 py-2">
         {/* TECHNOLOGY card */}
         <div className="rounded-[14px] bg-[linear-gradient(110deg,#020817_0%,#03122F_48%,#130B45_100%)] text-white px-5 sm:px-8 lg:px-10 py-8 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-9 items-center shadow-[0_14px_40px_rgba(2,8,23,0.28)] overflow-hidden">
           {/* Left */}
@@ -480,7 +480,7 @@ export default function Home() {
       </section>
 
       {/* STATS */}
-      <section className="max-w-[1280px] mx-auto px-6 pt-8 pb-6">
+      <section className="max-w-[1280px] mx-6 sm:mx-10 lg:mx-16  pt-8 pb-6">
         {/* STATS */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 rounded-[14px] border border-indigo-100 bg-white shadow-[0_8px_25px_rgba(79,70,229,0.08)] px-5 sm:px-8 py-5">
           {[
@@ -529,12 +529,12 @@ export default function Home() {
           How We Work
         </p>
 
-        <h2 className="text-center text-[22px] sm:text-[26px] md:text-[32px] lg:text-[40px] font-bold mt-2 sm:mt-3 text-[#111827] leading-tight">
+        <h2 className="text-center text-[22px] sm:text-[26px] md:text-[28px] lg:text-[28px] font-bold mt-2 sm:mt-3 text-[#111827] leading-tight">
           From Research to Real-World Impact
         </h2>
 
         {/* HOW WE WORK */}
-        <div className="max-w-[1180px] mx-auto px-6 mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr] gap-6 lg:gap-4 items-start">
+        <div className="max-w-[1280px] mx-6 sm:mx-10 lg:mx-16 mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr] gap-6 lg:gap-4 items-start">
           {[
             [
               Search,
@@ -707,7 +707,7 @@ export default function Home() {
           Stay Informed. Stay Ahead.
         </h2>
 
-        <div className="max-w-[1280px] mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">
+        <div className="max-w-[1280px] mx-6 sm:mx-10 lg:mx-16 grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">
           {[
             {
               tag: "Blog",
@@ -796,41 +796,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="bg-[#020617] text-white py-14">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-6 gap-10">
-          <div className="md:col-span-2">
-            <div className="text-4xl font-black text-indigo-500">RC</div>
-            <p className="text-sm text-gray-400 mt-4 max-w-xs">
-              Empowering researchers, institutions and publishers with ethical
-              solutions and advanced technology.
-            </p>
-          </div>
-
-          {[
-            "For Researchers",
-            "For Institutions",
-            "For Publishers",
-            "Technology",
-          ].map((x) => (
-            <div key={x}>
-              <h4 className="font-black mb-4">{x}</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>Author Services</li>
-                <li>Publication Support</li>
-                <li>Research Profiles</li>
-                <li>Career Support</li>
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-sm text-gray-400">
-          © 2024 Researcher Connect Innovation and Impact Private Limited. All
-          Rights Reserved.
-        </div>
-      </footer>
     </div>
   );
 }
