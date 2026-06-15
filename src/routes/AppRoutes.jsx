@@ -9,6 +9,7 @@ import Contact from '../pages/Contact.jsx'
 import Researches from '../pages/researches/Researches.jsx'
 import ResearcherAnalytics from '../pages/Institutions/ResearchAnalytics.jsx'
 import ResearchConsulting from '../pages/Institutions/ResearchConsulting.jsx'
+import InstitutionalRepository from '../pages/Institutions/InstitutionalRepository.jsx'
 
 function AppRoutes() {
   return (
@@ -22,6 +23,7 @@ function AppRoutes() {
       <Route path="/researchers" element={<Researches />} />
       <Route path="/research-analytics" element={<ResearcherAnalytics />} />
       <Route path="/research-consulting" element={<ResearchConsulting />} />
+      <Route path="/institutional-repository" element={<InstitutionalRepository/>} />
     </Routes>
   )
 }

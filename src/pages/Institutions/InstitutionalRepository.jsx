@@ -1,0 +1,414 @@
+import { useState } from "react";
+import {
+  Shield, Globe, TrendingUp, Users, CheckCircle, Database,
+  Search, Lock, BarChart2, FileText, Tag, Hash, Shuffle, Palette,
+  BookOpen, FileStack, GraduationCap, Book, ClipboardList, Grid,
+  File, Presentation, Award, ScrollText, Video, MoreHorizontal,
+  Upload, Share2, Building, ChevronDown, ArrowRight, Menu, X,
+  Phone, Mail, MapPin, Twitter, Linkedin, Youtube, Facebook
+} from "lucide-react";
+import heroBg from "../../assets/insRepoBG.png"
+import int from "../../assets/integration.png"
+
+const NAV_LINKS = [
+  { label: "Home" },
+  { label: "Researchers", dropdown: true },
+  { label: "Institutions", dropdown: true, active: true },
+  { label: "Publishers", dropdown: true },
+  { label: "Innovation & IP", dropdown: true },
+  { label: "Technology", dropdown: true },
+  { label: "Resources", dropdown: true },
+  { label: "About Us" },
+];
+
+const WHY_CARDS = [
+  { icon: Shield, title: "Preserve Research", desc: "Ensure long-term preservation and accessibility of your institution's research." },
+  { icon: Globe, title: "Increase Visibility", desc: "Enhance global visibility and showcase your research excellence." },
+  { icon: TrendingUp, title: "Drive Impact", desc: "Increase citations, downloads, and research impact." },
+  { icon: Users, title: "Facilitate Collaboration", desc: "Enable discovery and collaboration within and beyond your institution." },
+  { icon: CheckCircle, title: "Ensure Compliance", desc: "Meet funder mandates and institutional open access policies." },
+  { icon: Database, title: "Reduce Costs", desc: "Cost-effective solution for managing and disseminating research output." },
+];
+
+const FEATURES_LEFT = [
+  { icon: Search, title: "Advanced Search", desc: "Powerful search and filters to quickly find relevant content." },
+  { icon: Lock, title: "Access Control", desc: "Role-based permissions and access management." },
+  { icon: BarChart2, title: "Statistics & Analytics", desc: "Track usage, downloads and research impact metrics." },
+  { icon: FileText, title: "Multi-format Support", desc: "Support for diverse file types and formats." },
+];
+
+const FEATURES_RIGHT = [
+  { icon: Tag, title: "Metadata Management", desc: "Support for rich metadata and multiple standards." },
+  { icon: Hash, title: "Persistent Identifiers", desc: "DOI, Handle and other PIDs for long-term discovery." },
+  { icon: Shuffle, title: "Interoperability", desc: "OAI-PMH, API and SWORD support for easy integration." },
+  { icon: Palette, title: "Custom Branding", desc: "Customize the look and feel to reflect your identity." },
+];
+
+const CONTENT_TYPES = [
+  { icon: FileText, label: "Journal Articles", color: "text-indigo-600" },
+  { icon: FileStack, label: "Conference Papers", color: "text-blue-600" },
+  { icon: GraduationCap, label: "Theses & Dissertations", color: "text-cyan-600" },
+  { icon: Book, label: "Books & Chapters", color: "text-indigo-500" },
+  { icon: ClipboardList, label: "Research Reports", color: "text-blue-500" },
+  { icon: Grid, label: "Data Sets", color: "text-indigo-600" },
+  { icon: File, label: "Working Papers", color: "text-cyan-500" },
+  { icon: Presentation, label: "Presentations", color: "text-blue-600" },
+  { icon: Award, label: "Patents", color: "text-indigo-500" },
+  { icon: ScrollText, label: "Policies & Guidelines", color: "text-blue-500" },
+  { icon: Video, label: "Audio / Video", color: "text-cyan-600" },
+  { icon: MoreHorizontal, label: "And More", color: "text-indigo-400" },
+];
+
+const INTEGRATIONS = [
+  "Integration with CRIS, LMS & Library Systems",
+  "OAI-PMH for global harvesting",
+  "ORCID & Author Identifier Integration",
+  "Crossref & DataCite Support",
+];
+
+const STATS = [
+  { icon: Building, value: "500+", label: "Institutions Trust Us" },
+  { icon: Database, value: "15M+", label: "Items Archived" },
+  { icon: Upload, value: "80M+", label: "Downloads" },
+  { icon: Globe, value: "200+", label: "Countries Reached" },
+  { icon: Shield, value: "99.9%", label: "Uptime & Data Security" },
+];
+
+const FOOTER_COLS = [
+  {
+    title: "For Researchers",
+    links: ["Author Services", "Publication Support", "Research Profiling", "Grants & Funding", "Career Resources", "Research Resources"],
+  },
+  {
+    title: "For Institutions",
+    links: ["Research Analytics", "RAMS Platform", "Benchmarking Support", "Institutional Repository", "Research Consulting", "Policy & Strategy"],
+  },
+  {
+    title: "For Publishers",
+    links: ["Journal Hosting", "Editorial Systems", "DOI Solutions", "Indexing Services", "Publishing Consultancy"],
+  },
+  {
+    title: "Innovation & IP",
+    links: ["IP Services", "Patent Support", "Technology Transfer", "Commercialization"],
+  },
+  {
+    title: "Company",
+    links: ["About Us", "Our Team", "Careers", "Contact Us", "Privacy Policy", "Terms & Conditions"],
+  },
+];
+
+// Laptop Dashboard Illustration
+function DashboardIllustration() {
+  return (
+    <div className="relative flex items-center justify-center w-full h-full min-h-[340px]">
+      {/* Plant */}
+      <div className="absolute top-0 right-4 z-10">
+        <div className="w-10 h-10 rounded-full bg-green-400 opacity-80 blur-sm" />
+        <div className="w-6 h-16 bg-green-600 mx-auto rounded-b-full -mt-4" />
+        <div className="w-12 h-4 bg-amber-700 rounded mx-auto" />
+      </div>
+      {/* Mug */}
+      <div className="absolute bottom-10 right-8 z-10">
+        <div className="w-12 h-10 bg-white border-2 border-gray-200 rounded-b-lg flex items-center justify-center shadow">
+          <span className="text-indigo-700 font-bold text-xs">Rc</span>
+        </div>
+        <div className="w-4 h-5 border-2 border-gray-200 rounded-r-full absolute -right-3 top-1 bg-transparent" />
+      </div>
+      {/* Books */}
+      <div className="absolute bottom-6 left-2 z-10 flex gap-1">
+        {["bg-indigo-500","bg-blue-400","bg-cyan-400"].map((c,i)=>(
+          <div key={i} className={`w-5 h-14 ${c} rounded-sm opacity-80`} />
+        ))}
+      </div>
+      {/* Labels */}
+      <div className="absolute right-0 top-1/3 z-10 flex flex-col gap-1">
+        <div className="bg-indigo-700 text-white text-[9px] font-bold px-2 py-1 rounded-l">RESEARCH EXCELLENCE</div>
+        <div className="bg-blue-500 text-white text-[9px] font-bold px-2 py-1 rounded-l">KNOWLEDGE SHARING</div>
+      </div>
+      {/* Laptop */}
+      <div className="relative z-0 w-full max-w-md">
+        {/* Screen */}
+        <div className="bg-gray-100 rounded-t-xl border-4 border-gray-300 shadow-2xl overflow-hidden" style={{aspectRatio:"16/10"}}>
+          {/* Dashboard header */}
+          <div className="bg-white px-3 py-2 flex items-center gap-2 border-b border-gray-200">
+            <div className="flex gap-1">
+              <div className="w-2 h-2 rounded-full bg-red-400" />
+              <div className="w-2 h-2 rounded-full bg-yellow-400" />
+              <div className="w-2 h-2 rounded-full bg-green-400" />
+            </div>
+            <div className="text-[10px] text-gray-500 font-semibold mx-auto">Repository Overview</div>
+          </div>
+          <div className="flex h-full">
+            {/* Sidebar */}
+            <div className="w-20 bg-indigo-900 text-white text-[8px] py-3 flex flex-col gap-2 flex-shrink-0">
+              {["Dashboard","Communities","Collections","Items","Authors","Statistics","Reports","Settings"].map(s=>(
+                <div key={s} className={`px-2 py-1 rounded-sm mx-1 ${s==="Dashboard"?"bg-indigo-600 font-bold":""}`}>{s}</div>
+              ))}
+            </div>
+            {/* Main */}
+            <div className="flex-1 p-2 bg-gray-50 overflow-hidden">
+              {/* Stats row */}
+              <div className="grid grid-cols-4 gap-1 mb-2">
+                {[["Total Items","25,680"],["Full Text Items","18,742"],["Downloads","125,430"],["Communities","256"]].map(([l,v])=>(
+                  <div key={l} className="bg-white rounded p-1 shadow-sm">
+                    <div className="text-[7px] text-gray-400">{l}</div>
+                    <div className="text-[10px] font-bold text-gray-800">{v}</div>
+                  </div>
+                ))}
+              </div>
+              {/* Charts */}
+              <div className="grid grid-cols-2 gap-1">
+                <div className="bg-white rounded p-1 shadow-sm">
+                  <div className="text-[7px] text-gray-500 mb-1">Growth Over Time</div>
+                  <svg viewBox="0 0 80 40" className="w-full">
+                    <polyline points="0,35 15,28 30,20 45,15 60,8 75,4" fill="none" stroke="#6366f1" strokeWidth="2" />
+                    <polyline points="0,35 15,28 30,20 45,15 60,8 75,4 75,40 0,40" fill="url(#grad)" opacity="0.2" />
+                    <defs><linearGradient id="grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#6366f1"/><stop offset="100%" stopColor="white"/></linearGradient></defs>
+                  </svg>
+                </div>
+                <div className="bg-white rounded p-1 shadow-sm flex flex-col items-center">
+                  <div className="text-[7px] text-gray-500 mb-1">Top Content Types</div>
+                  <svg viewBox="0 0 60 60" className="w-12 h-12">
+                    <circle cx="30" cy="30" r="22" fill="none" stroke="#e0e7ff" strokeWidth="10"/>
+                    <circle cx="30" cy="30" r="22" fill="none" stroke="#6366f1" strokeWidth="10" strokeDasharray="60 78" strokeDashoffset="0"/>
+                    <circle cx="30" cy="30" r="22" fill="none" stroke="#3b82f6" strokeWidth="10" strokeDasharray="30 108" strokeDashoffset="-60"/>
+                    <circle cx="30" cy="30" r="22" fill="none" stroke="#06b6d4" strokeWidth="10" strokeDasharray="20 118" strokeDashoffset="-90"/>
+                    <circle cx="30" cy="30" r="14" fill="white"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Base */}
+        <div className="bg-gray-300 h-3 rounded-b-xl mx-4" />
+        <div className="bg-gray-400 h-1.5 rounded-b-xl mx-8" />
+      </div>
+    </div>
+  );
+}
+
+// Integration visual
+function IntegrationVisual() {
+  return (
+    <div className="relative flex items-center justify-center h-full min-h-[220px]">
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-48 h-48 rounded-full border-2 border-dashed border-indigo-200 opacity-50" />
+        <div className="absolute w-32 h-32 rounded-full border-2 border-dashed border-blue-200 opacity-50" />
+      </div>
+      <div className="relative z-10 flex flex-col items-center gap-4">
+        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center shadow-lg">
+          <Upload className="w-8 h-8 text-white" />
+        </div>
+        <div className="flex gap-6">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 border border-indigo-200 flex items-center justify-center">
+            <Building className="w-6 h-6 text-indigo-600" />
+          </div>
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-100 to-blue-100 border border-blue-200 flex items-center justify-center">
+            <Share2 className="w-6 h-6 text-blue-600" />
+          </div>
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-100 to-cyan-100 border border-cyan-200 flex items-center justify-center">
+            <Globe className="w-6 h-6 text-cyan-600" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function InstitutionalRepository() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  return (
+    <div className="font-sans text-gray-800 bg-white min-h-screen">
+      {/* HERO */}
+<section className="mt-[70px] relative w-full min-h-[430px] sm:min-h-[470px] lg:min-h-[600px] overflow-hidden bg-[#F7F8FF]">
+  <img
+    src={heroBg}
+    alt="Institutional Repository"
+    className="absolute inset-0 w-full h-full object-cover object-center"
+  />
+  {/* className="absolute inset-0 w-full h-full object-contain object-center bg-[#F7F8FF]" */}
+
+  <div className="relative z-10 max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-16 pt-8 sm:pt-10">
+    <nav className="flex flex-wrap items-center gap-2 text-[12px] font-semibold mb-8">
+      <span className="text-[#4F46E5] hover:text-[#2563EB] cursor-pointer">Home</span>
+      <span className="text-gray-400">›</span>
+      <span className="text-[#4F46E5] hover:text-[#2563EB] cursor-pointer">Institutions</span>
+      <span className="text-gray-400">›</span>
+      <span className="text-[#1E293B]">Institutional Repository</span>
+    </nav>
+
+    <div className="max-w-[520px]">
+      <h1 className="text-[34px] sm:text-[42px] lg:text-[50px] leading-tight lg:leading-none font-extrabold text-[#07113F]">
+        Institutional
+        <br />
+        <span className="text-[#4F46E5]">Repository</span>
+      </h1>
+
+      <p className="text-[#4F46E5] text-[14px] sm:text-[16px] font-bold mt-4 sm:mt-5">
+        Preserve. Share. Showcase Your Research.
+      </p>
+
+      <p className="text-[13px] sm:text-[14px] text-[#242a34] leading-[1.9] sm:leading-[2] mt-3 sm:mt-5 max-w-[470px]">
+        A secure and scalable repository to collect, preserve, manage, and
+        showcase your institution's research output and intellectual assets.
+      </p>
+
+      <div className="mt-7 flex flex-col sm:flex-row gap-4">
+        <button className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-sm">
+          <Database className="w-4 h-4" />
+          Request a Demo
+        </button>
+
+        <button className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-sm bg-white/50">
+          Explore All Services
+          <ArrowRight className="w-4 h-4" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+      {/* WHY SECTION */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-12">Why an Institutional Repository?</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+            {WHY_CARDS.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="flex flex-col items-center text-center px-2">
+                <div className="w-14 h-14 rounded-full bg-indigo-50 flex items-center justify-center mb-4">
+                  <Icon className="w-7 h-7 text-indigo-600" />
+                </div>
+                <h3 className="font-bold text-gray-900 text-sm mb-2">{title}</h3>
+                <p className="text-gray-500 text-xs leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURES + CONTENT */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-12">
+            {/* Powerful Features */}
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-2xl font-bold text-gray-900 mb-8">Powerful Features</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[...FEATURES_LEFT, ...FEATURES_RIGHT].map(({ icon: Icon, title, desc }) => (
+                  <div key={title} className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon className="w-5 h-5 text-indigo-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 text-sm mb-1">{title}</h3>
+                      <p className="text-gray-500 text-xs leading-relaxed">{desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <button className="mt-8 inline-flex items-center gap-2 text-indigo-600 font-semibold text-sm hover:text-indigo-800 transition-colors">
+                Explore All Features <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden lg:block w-px bg-gray-200 self-stretch" />
+
+            {/* Content Types */}
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-2xl font-bold text-gray-900 mb-8">Content You Can Manage</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                {CONTENT_TYPES.map(({ icon: Icon, label, color }) => (
+                  <div key={label} className="flex flex-col items-center text-center gap-2">
+                    <div className="w-12 h-12 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center">
+                      <Icon className={`w-6 h-6 ${color}`} />
+                    </div>
+                    <span className="text-xs font-medium text-gray-700 leading-tight">{label}</span>
+                  </div>
+                ))}
+              </div>
+              <button className="mt-8 inline-flex items-center gap-2 text-indigo-600 font-semibold text-sm hover:text-indigo-800 transition-colors">
+                View Content Guidelines <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEAMLESS INTEGRATION */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Visual */}
+            <div className="w-full lg:w-2/5">
+              <IntegrationVisual />
+            </div>
+            {/* Text */}
+            <div className="w-full lg:w-3/5">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Seamless Integration</h2>
+              <p className="text-gray-500 text-base leading-relaxed mb-8">
+                Our repository integrates with your existing systems and global networks to ensure maximum reach and interoperability.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {INTEGRATIONS.map(item => (
+                  <div key={item} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle className="w-3.5 h-3.5 text-indigo-600" />
+                    </div>
+                    <span className="text-gray-700 text-sm font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* STATS BAR */}
+      <section className="bg-gradient-to-r from-indigo-700 via-indigo-600 to-blue-600 py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
+            {STATS.map(({ icon: Icon, value, label }) => (
+              <div key={label} className="flex flex-col items-center text-center gap-2">
+                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <span className="text-2xl sm:text-3xl font-extrabold text-white">{value}</span>
+                <span className="text-indigo-200 text-xs font-medium">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* BOTTOM CTA */}
+      <section className="bg-gradient-to-r from-indigo-800 via-indigo-700 to-blue-700 py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-8">
+            {/* Icon */}
+            <div className="hidden lg:flex w-36 h-24 items-center justify-center flex-shrink-0">
+              <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
+                <Upload className="w-10 h-10 text-white" />
+              </div>
+            </div>
+            {/* Text */}
+            <div className="flex-1 text-center lg:text-left">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">Build Your Institution's Digital Knowledge Hub</h2>
+              <p className="text-indigo-200 text-base">Empower research, drive impact and leave a lasting legacy.</p>
+            </div>
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+              <button className="inline-flex items-center gap-2 bg-white text-indigo-700 font-bold px-6 py-3 rounded-lg hover:bg-indigo-50 transition-colors text-sm">
+                Request a Demo <ArrowRight className="w-4 h-4" />
+              </button>
+              <button className="inline-flex items-center gap-2 border-2 border-white/40 text-white font-bold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors text-sm">
+                Talk to Our Experts
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
