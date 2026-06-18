@@ -705,7 +705,7 @@ export default function InstitutionsResearchAnalytics() {
         <div className="max-w-[1280px] mx-6 sm:mx-10 lg:mx-10">
           <div className="bg-white rounded-xl shadow-[0_8px_30px_rgba(15,23,42,0.08)] border border-gray-100 px-4 sm:px-8 py-6">
             <div className="text-center mb-5">
-              <h2 className="text-[18px] sm:text-[20px] font-extrabold text-[#07113F]">
+              <h2 className="text-[18px] sm:text-[20px] font-bold text-[#07113F]">
                 Why Research Analytics Matters
               </h2>
               <div className="w-8 h-[3px] bg-[#4F46E5] mx-auto rounded-full mt-2" />
