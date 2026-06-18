@@ -27,6 +27,7 @@ import {
 import { Link } from "react-router-dom";
 import heroImg from "../../assets/bggrant.png";
 import whyImg from "../../assets/grant2.png";
+import auth from "../../assets/auth2.png"
 
 const GrantFunding = () => {
   const lifecycle = [
@@ -246,15 +247,26 @@ const GrantFunding = () => {
 
     {/* SOURCES */}
 <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-12 pb-6">
-  <Card>
+  <div className="mx-auto w-full max-w-[1420px] rounded-[14px] border border-[#eceeff] bg-white px-4 py-6 shadow-[0_8px_30px_rgba(79,70,229,0.06)] sm:px-6 lg:px-8">
     <SectionTitle title="Funding Sources We Assist With" />
 
     <div className="mt-6 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:grid-cols-3 xl:grid-cols-6">
       {fundingSources.map(([title, Icon]) => (
-        <SmallBox key={title} title={title} Icon={Icon} />
+        <div
+          key={title}
+          className="group flex min-h-[128px] flex-col items-center justify-center rounded-[10px] border border-[#e8ebf7] bg-white px-4 py-5 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[#c7bfff] hover:shadow-[0_14px_30px_rgba(91,53,255,0.12)]"
+        >
+          <div className="flex h-[48px] w-[48px] items-center justify-center text-[#2F5BFF] transition-all duration-300 group-hover:scale-110">
+            <Icon size={32} strokeWidth={2.2} />
+          </div>
+
+          <h3 className="mt-3 max-w-[130px] text-[12px] font-bold leading-[18px] text-[#111832]">
+            {title}
+          </h3>
+        </div>
       ))}
     </div>
-  </Card>
+  </div>
 </section>
 
 {/* RESEARCH AREAS */}
@@ -289,7 +301,7 @@ const GrantFunding = () => {
               <Icon size={25} strokeWidth={2.2} />
             </div>
 
-            <h3 className="mt-3 max-w-[120px] text-[11px] font-extrabold leading-[15px] text-[#111832]">
+            <h3 className="mt-3 max-w-[120px] text-[11px] font-bold leading-[15px] text-[#111832]">
               {title}
             </h3>
           </div>
@@ -341,64 +353,75 @@ const GrantFunding = () => {
 </section>
 
       {/* IMPACT */}
-      <section className="w-full px-3 sm:px-5 lg:px-8 pb-6">
-        <div className="mx-auto w-full max-w-[1420px] rounded-[10px] bg-gradient-to-r from-[#563BFF] via-[#2566E8] to-[#009CA6] px-5 py-5 text-white shadow-[0_12px_30px_rgba(37,102,232,0.18)]">
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
-            {impact.map(([num, label, Icon], index) => (
-              <div
-                key={label}
-                className={`group flex items-center justify-center gap-4 px-4 transition-all duration-300 hover:-translate-y-1 ${
-                  index !== impact.length - 1 ? "lg:border-r lg:border-white/15" : ""
-                }`}
-              >
-                <div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-white/20 text-white transition-all duration-300 group-hover:scale-110">
-                  <Icon size={25} strokeWidth={2.2} />
-                </div>
+     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-12 pb-6">
+  <div className="mx-auto w-full max-w-[1420px] rounded-[10px] bg-gradient-to-r from-[#563BFF] via-[#2566E8] to-[#009CA6] px-5 py-5 text-white shadow-[0_12px_30px_rgba(37,102,232,0.18)] sm:px-7">
+    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+      {impact.map(([num, label, Icon], index) => (
+        <div
+          key={label}
+          className={`group flex items-center justify-center gap-4 px-4 py-2 transition-all duration-300 hover:-translate-y-1 ${
+            index !== impact.length - 1 ? "lg:border-r lg:border-white/15" : ""
+          }`}
+        >
+          <div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full bg-white text-[#563BFF] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_10px_22px_rgba(255,255,255,0.25)]">
+            <Icon size={32} strokeWidth={2.2} />
+          </div>
 
-                <div>
-                  <div className="text-[22px] font-bold leading-none text-white">
-                    {num}
-                  </div>
-                  <div className="mt-1 text-[11px] font-semibold text-white/85">
-                    {label}
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="min-w-[110px]">
+            <div className="text-[20px] font-bold leading-none text-white">
+              {num}
+            </div>
+            <div className="mt-1 max-w-[120px] text-[11px] font-semibold leading-[15px] text-white/90">
+              {label}
+            </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* CTA */}
-      <section className="w-full px-3 sm:px-5 lg:px-8 pb-10">
-        <div className="mx-auto flex w-full max-w-[1420px] flex-col items-center justify-between gap-5 rounded-[14px] border border-[#eceeff] bg-[#f0edff] px-6 py-6 shadow-[0_8px_30px_rgba(79,70,229,0.06)] md:flex-row lg:px-10">
-          <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
-            <div className="flex h-[66px] w-[66px] shrink-0 items-center justify-center rounded-full bg-[#5138ff] text-white">
-              <Award size={31} />
-            </div>
-
-            <div>
-              <h2 className="text-[20px] sm:text-[24px] font-bold text-[#111832]">
-                Ready to Secure Your Next Grant?
-              </h2>
-              <p className="mt-2 text-[12px] font-semibold text-[#334155]">
-                Our experts are here to guide you at every step of your funding journey.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <button className="rounded-[6px] bg-[#5138ff] px-7 py-3 text-[13px] font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#402bd8] hover:shadow-lg">
-              Talk to an Expert →
-            </button>
-
-            <button className="rounded-[6px] border border-[#8b7cff] bg-white px-7 py-3 text-[13px] font-bold text-[#5138ff] transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-              Request Consultation
-            </button>
-          </div>
+     <section className="w-full bg-[#f8f9ff] px-3 sm:px-5 lg:px-12 pb-10">
+  <div
+    className="mx-auto w-full max-w-[1420px] overflow-hidden rounded-[10px] border border-[#eceeff] bg-[#f0edff] bg-cover bg-center bg-no-repeat px-5 py-7 shadow-[0_8px_30px_rgba(79,70,229,0.06)] sm:px-7 lg:px-10"
+    style={{ backgroundImage: `url(${auth})` }}
+  >
+    <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
+      
+      <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
+        <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full bg-[#5138ff] text-white shadow-[0_10px_26px_rgba(81,56,255,0.25)] transition-all duration-300 hover:scale-110">
+          <Award size={32} strokeWidth={2.1} />
         </div>
-      </section>
-    </main>
+
+        <div>
+          <h2 className="text-[20px] font-bold leading-tight text-[#111832] sm:text-[22px]">
+            Ready to Secure Your Next Grant?
+          </h2>
+
+          <p className="mt-2 text-[11px] font-semibold leading-[18px] text-[#1f2744] sm:text-[12px]">
+            Our experts are here to guide you at every step of your funding journey.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+        <button className="inline-flex h-[44px] items-center justify-center gap-3 rounded-[5px] bg-[#5138ff] px-7 text-[12px] font-bold text-white shadow-[0_10px_24px_rgba(81,56,255,0.25)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#402bd8] hover:shadow-[0_14px_30px_rgba(81,56,255,0.35)]">
+          Talk to an Expert
+          <span>→</span>
+        </button>
+
+        <button className="inline-flex h-[44px] items-center justify-center rounded-[5px] border border-[#8b7cff] bg-white/80 px-7 text-[12px] font-bold text-[#5138ff] transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_10px_24px_rgba(91,53,255,0.16)]">
+          Request Consultation
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+    
+    
+        </main>
   );
 };
 
