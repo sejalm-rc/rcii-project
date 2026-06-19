@@ -10,6 +10,16 @@ import Researches from '../pages/researches/Researches.jsx'
 import ResearcherAnalytics from '../pages/Institutions/ResearchAnalytics.jsx'
 import ResearchConsulting from '../pages/Institutions/ResearchConsulting.jsx'
 import InstitutionalRepository from '../pages/Institutions/InstitutionalRepository.jsx'
+import RAMSPlatform from '../pages/Institutions/RAMSPlatform.jsx'
+import AccrediationRanking from '../pages/Institutions/AccreditationRanking'
+import ResearchInfrastructureSupport from '../pages/Institutions/ResearchInfrastructureSupport.jsx'
+import AuthorServices from '../pages/researches/AuthorServices.jsx'
+import CareerGrowthResources from '../pages/researches/CareerGrowthResources.jsx'
+import GrantFunding from '../pages/researches/GrantFunding.jsx'
+import IpinnoSupport from '../pages/researches/IpinnoSupport.jsx'
+import PubSupport from '../pages/researches/PubSupport.jsx'
+import ReseachResourcesTemplate from '../pages/researches/ResearchResourcesTemplate.jsx'
+import ResearchProfileVisibility from '../pages/researches/ResearchProfileVisibility.jsx'
 
 function AppRoutes() {
   return (
@@ -21,9 +31,20 @@ function AppRoutes() {
       <Route path="/blog" element={<Blog />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/researchers" element={<Researches />} />
+      <Route path="/author-services" element={<AuthorServices/>} />
+      <Route path="/publication-support" element={<PubSupport/>} />
+      <Route path="/ip-innovation-support" element={<IpinnoSupport/>} />
+      <Route path="/reserach-resources-templates" element={<ReseachResourcesTemplate/>} />
+      <Route path="/research-profiling-visibility" element={<ResearchProfileVisibility/>} />
+      <Route path="/grant-funding-support" element={<GrantFunding/>} />
+      <Route path="/career-growth-resources" element={<CareerGrowthResources/>} />
       <Route path="/research-analytics" element={<ResearcherAnalytics />} />
       <Route path="/research-consulting" element={<ResearchConsulting />} />
       <Route path="/institutional-repository" element={<InstitutionalRepository/>} />
+       <Route path="/rams-platform" element={<RAMSPlatform/>} />
+       <Route path="/ranking-support" element={<AccrediationRanking/>} />
+       <Route path="/research-infrastructure-support" element={<ResearchInfrastructureSupport/>} />
+
     </Routes>
   )
 }
