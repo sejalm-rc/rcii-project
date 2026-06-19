@@ -1,197 +1,470 @@
-import React, { useState } from 'react'
-import SectionTitle from '../components/SectionTitle.jsx'
+import React, { useState } from "react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  MessageCircle,
+  CalendarDays,
+  Headphones,
+  FileText,
+  ArrowRight,
+  Send,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Youtube,
+  Link as LinkIcon,
+  ChevronDown,
+  Quote,
+} from "lucide-react";
 
-const contactInfo = [
-  { icon: '📧', label: 'Email Us', value: 'contact@researcherconnect.com', href: 'mailto:contact@researcherconnect.com' },
-  { icon: '📞', label: 'Call Us', value: '+91 9960266198', href: 'tel:+919960266198' },
-  { icon: '🌐', label: 'Website', value: 'researcherconnect.com', href: 'https://researcherconnect.com' },
-  { icon: '📍', label: 'Location', value: 'Pune, Maharashtra, India', href: '#' },
-]
+import templeImg from "../assets/contact1.png";
+import cityImg from "../assets/contact2.png";
+import bannerBg from "../assets/contact.png";
+import bgImg from "../assets/contact3.png";
 
-const services = [
-  'Publication Support', 'Author Services', 'Editorial Support',
-  'Indexing Support', 'Accreditation Support', 'Research Profiling',
-  'Grant Support', 'Research Data Management', 'Technology Solutions',
-  'Other',
-]
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', institution: '', service: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    org: "",
+    regarding: "",
+    message: "",
+    agree: false,
+  });
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setSubmitted(true)
-  }
+    e.preventDefault();
+
+    if (!form.name || !form.email || !form.message || !form.agree) {
+      alert("Please fill required fields and accept Privacy Policy.");
+      return;
+    }
+
+    alert("Message sent successfully!");
+    setForm({
+      name: "",
+      email: "",
+      org: "",
+      regarding: "",
+      message: "",
+      agree: false,
+    });
+  };
 
   return (
-    <>
-      {/* Header */}
-      <section className="pt-28 pb-16 bg-gradient-to-br from-indigo-50 via-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 border border-indigo-100">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
-              Get in Touch
+    <main className="min-h-screen bg-[#fbfcff] font-sans text-[#080f3d]">
+      <section className="mx-auto max-w-[1420px] px-4 py-8 sm:px-6 lg:px-10">
+        {/* TOP */}
+        <div className="grid gap-8 lg:grid-cols-[1fr_1.05fr]">
+          {/* LEFT */}
+          <div className="pt-2">
+            <div className="mb-5 flex items-center gap-2 text-[12px] font-bold text-[#523bff]">
+              <span>Home</span>
+              <span>›</span>
+              <span className="text-[#1e2550]">Contact Us</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-black text-gray-900 mb-4">
-              Let's Elevate Your <span className="gradient-text">Research Impact</span>
+
+            <h1 className="text-[38px] font-extrabold leading-tight sm:text-[46px]">
+              Contact Us
             </h1>
-            <p className="text-lg text-gray-500">
-              Reach out to our team of expert consultants. Free initial consultation included for all inquiries.
+
+            <h2 className="mt-3 text-[22px] font-extrabold text-[#2f19ff] sm:text-[26px]">
+              We’re Here to Help You Make an Impact.
+            </h2>
+
+            <div className="mt-5 h-[3px] w-[54px] rounded-full bg-[#13c7d5]" />
+
+            <p className="mt-6 max-w-[610px] text-[14px] font-bold leading-[1.9] text-[#273153]">
+              Have a question, need assistance, or want to explore how we can
+              support your research, publishing, or innovation goals? Our team
+              is ready to connect with you.
             </p>
+
+            <div className="mt-8 space-y-7">
+              <ContactInfo
+                icon={Mail}
+                bg="#f0edff"
+                color="#563BFF"
+                title="Email Us"
+                lines={["info@researcherconnect.co.in"]}
+              />
+              <ContactInfo
+                icon={Phone}
+                bg="#eaf8ef"
+                color="#3abe69"
+                title="Call Us"
+                lines={["+91 44 4211 4863", "Mon – Fri, 9:30 AM – 6:30 PM IST"]}
+              />
+              <ContactInfo
+                icon={MapPin}
+                bg="#fff0e8"
+                color="#ff7a33"
+                title="Visit Us"
+                lines={[
+                  "No. 1, 3rd Floor, Eldams Road, Alwarpet,",
+                  "Chennai – 600018, Tamil Nadu, India",
+                ]}
+              />
+            </div>
           </div>
+
+          {/* FORM */}
+          <form
+            onSubmit={handleSubmit}
+            className="rounded-[12px] border border-[#e8eaf7] bg-white p-5 shadow-[0_12px_35px_rgba(30,40,90,0.08)] sm:p-7"
+          >
+            <h3 className="text-[20px] font-extrabold">Send Us a Message</h3>
+            <p className="mt-2 text-[12px] font-bold text-[#303a5d]">
+              Fill out the form below and we’ll get back to you as soon as
+              possible.
+            </p>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <Input
+                placeholder="Full Name"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+              />
+              <Input
+                placeholder="Email Address"
+                type="email"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+              />
+            </div>
+
+            <Input
+              className="mt-4"
+              placeholder="Organization / Institution"
+              value={form.org}
+              onChange={(e) => setForm({ ...form, org: e.target.value })}
+            />
+
+            <div className="relative mt-4">
+              <select
+                value={form.regarding}
+                onChange={(e) =>
+                  setForm({ ...form, regarding: e.target.value })
+                }
+                className="h-[52px] w-full appearance-none rounded-[6px] border border-[#dbe0ee] bg-white px-4 text-[12px] font-semibold text-[#67708c] outline-none transition focus:border-[#563BFF] focus:ring-4 focus:ring-[#563BFF]/10"
+              >
+                <option value="">I am contacting regarding...</option>
+                <option>Research Support</option>
+                <option>Publication Support</option>
+                <option>Patent Assistance</option>
+                <option>Partnership</option>
+              </select>
+              <ChevronDown
+                size={18}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#563BFF]"
+              />
+            </div>
+
+            <textarea
+              placeholder="Your Message"
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              className="mt-4 h-[145px] w-full resize-none rounded-[6px] border border-[#dbe0ee] px-4 py-4 text-[12px] font-semibold text-[#1d2545] outline-none transition placeholder:text-[#77809a] focus:border-[#563BFF] focus:ring-4 focus:ring-[#563BFF]/10"
+            />
+
+            <label className="mt-4 flex items-center gap-2 text-[12px] font-semibold text-[#39435f]">
+              <input
+                type="checkbox"
+                checked={form.agree}
+                onChange={(e) => setForm({ ...form, agree: e.target.checked })}
+                className="accent-[#563BFF]"
+              />
+              I agree to the{" "}
+              <span className="font-extrabold text-[#563BFF] underline">
+                Privacy Policy
+              </span>
+            </label>
+
+            <button
+              type="submit"
+              className="group mt-5 flex h-[55px] w-full items-center justify-center gap-2 rounded-[6px] bg-[#3f16f5] text-[13px] font-extrabold text-white shadow-[0_12px_25px_rgba(63,22,245,0.25)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#2f0fd1]"
+            >
+              <Send size={16} />
+              Send Message
+            </button>
+          </form>
         </div>
-      </section>
 
-      {/* Contact Section */}
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-12">
-            {/* Left - Info */}
-            <div className="lg:col-span-2 space-y-6">
-              <div>
-                <h2 className="text-2xl font-black text-gray-900 mb-2">Contact Information</h2>
-                <p className="text-gray-500 text-sm">Available Monday to Saturday, 9 AM – 7 PM IST</p>
-              </div>
+        {/* OTHER WAYS */}
+        <SectionTitle title="Other Ways to Connect" />
 
-              {contactInfo.map((info) => (
-                <a key={info.label} href={info.href} className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-100 transition-all group">
-                  <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-2xl group-hover:bg-indigo-100 transition-colors shrink-0">
-                    {info.icon}
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-400 font-medium mb-0.5">{info.label}</div>
-                    <div className="font-semibold text-gray-900 text-sm group-hover:text-indigo-700 transition-colors">{info.value}</div>
-                  </div>
-                </a>
-              ))}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ConnectCard
+            icon={MessageCircle}
+            color="#36c273"
+            title="Live Chat"
+            text="Chat with our experts in real-time for quick answers to your queries."
+            action="Start Chat"
+          />
+          <ConnectCard
+            icon={CalendarDays}
+            color="#563BFF"
+            title="Schedule a Meeting"
+            text="Book a consultation with our team to discuss your requirements."
+            action="Schedule Now"
+          />
+          <ConnectCard
+            icon={Headphones}
+            color="#ff8a32"
+            title="Support"
+            text="For existing clients, reach out to our support team."
+            action="Get Support"
+          />
+          <ConnectCard
+            icon={FileText}
+            color="#168eea"
+            title="Request a Proposal"
+            text="Tell us about your project and we’ll send you a customized proposal."
+            action="Request Now"
+          />
+        </div>
 
-              {/* Response time */}
-              <div className="bg-gradient-to-br from-indigo-600 to-blue-700 rounded-2xl p-6 text-white">
-                <div className="text-3xl mb-3">⚡</div>
-                <h3 className="font-bold text-lg mb-2">Fast Response Guarantee</h3>
-                <p className="text-blue-100 text-sm leading-relaxed">
-                  All consultation requests receive a personalized response within 24 hours from a dedicated senior consultant.
+        {/* BOTTOM GRID */}
+        <div className="mt-6 grid gap-6 lg:grid-cols-[1.05fr_1fr_.85fr]">
+          {/* OFFICES */}
+          <Box>
+            <h3 className="mb-5 text-[18px] font-extrabold">Our Offices</h3>
+
+            <OfficeCard
+              img={templeImg}
+              title="India – Head Office"
+              lines={[
+                "No. 1, 3rd Floor, Eldams Road,",
+                "Alwarpet, Chennai – 600018,",
+                "Tamil Nadu, India",
+              ]}
+            />
+
+            <OfficeCard
+              img={cityImg}
+              title="Global Office"
+              lines={["8 The Green, Suite A, Dover,", "Delaware 19901, USA"]}
+            />
+          </Box>
+
+          {/* FAQ */}
+          <Box>
+            <h3 className="mb-5 text-[18px] font-extrabold">
+              Frequently Asked Questions
+            </h3>
+
+            {[
+              "What services does RCI offer?",
+              "Who can benefit from RCI’s services?",
+              "How can I get started with RCI?",
+              "Do you offer customized solutions?",
+              "Where can I find your terms of service?",
+            ].map((q, i) => (
+              <details
+                key={i}
+                className="group mb-3 rounded-[8px] border border-[#e6e9f4] bg-white px-4 py-4"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between text-[13px] font-extrabold text-[#18214a]">
+                  {q}
+                  <ChevronDown
+                    size={17}
+                    className="text-[#563BFF] transition group-open:rotate-180"
+                  />
+                </summary>
+                <p className="mt-3 text-[12px] font-medium leading-[1.7] text-[#5a647d]">
+                  Our team provides complete research, publishing, innovation
+                  and technology support based on your needs.
                 </p>
-                <div className="mt-4 grid grid-cols-3 gap-3 text-center">
-                  {[['&lt;24hr', 'Response'], ['Free', 'Assessment'], ['98%', 'Satisfaction']].map(([val, label]) => (
-                    <div key={label} className="bg-white/10 rounded-xl py-2">
-                      <div className="font-black text-base" dangerouslySetInnerHTML={{ __html: val }} />
-                      <div className="text-xs text-blue-200">{label}</div>
-                    </div>
-                  ))}
+              </details>
+            ))}
+
+            <button className="mt-2 flex items-center gap-2 text-[13px] font-extrabold text-[#563BFF]">
+              View All FAQs <ArrowRight size={15} />
+            </button>
+          </Box>
+
+          {/* FOLLOW */}
+          <Box>
+            <h3 className="mb-4 text-[18px] font-extrabold">Follow Us</h3>
+            <div className="mb-4 h-[3px] w-[38px] rounded-full bg-[#563BFF]" />
+
+            <p className="text-[12px] font-bold leading-[1.8] text-[#3d4665]">
+              Stay connected with us for the latest updates, insights, and
+              resources.
+            </p>
+
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Social icon={Linkedin} bg="#0a66c2" />
+              <Social icon={Twitter} bg="#1da1f2" />
+              <Social icon={Facebook} bg="#1877f2" />
+              <Social icon={Youtube} bg="#ff0000" />
+              <Social icon={LinkIcon} bg="#f0edff" color="#563BFF" />
+            </div>
+
+            <div className="mt-7 rounded-[10px] bg-[#eefafa] p-5">
+              <Quote size={34} className="mb-3 text-[#7ed7e4]" />
+              <p className="text-[12px] font-bold leading-[1.8] text-[#31405f]">
+                RCI has been a valuable partner in amplifying the reach and
+                impact of our research. Their team is responsive,
+                knowledgeable, and truly invested in our success.
+              </p>
+
+              <div className="mt-5 flex items-center gap-3">
+                <div className="h-[42px] w-[42px] rounded-full bg-gradient-to-br from-[#563BFF] to-[#16c7d4]" />
+                <div>
+                  <h4 className="text-[13px] font-extrabold">Dr. Arvind Nair</h4>
+                  <p className="text-[11px] font-semibold text-[#5e6680]">
+                    Director – Research,
+                    <br />
+                    IIT Hyderabad
+                  </p>
                 </div>
               </div>
             </div>
-
-            {/* Right - Form */}
-            <div className="lg:col-span-3">
-              <div className="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-indigo-100/20 p-8">
-                {submitted ? (
-                  <div className="text-center py-12">
-                    <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">✅</div>
-                    <h3 className="text-2xl font-black text-gray-900 mb-2">Thank You!</h3>
-                    <p className="text-gray-500 mb-6">Your consultation request has been received. Our senior consultant will reach out within 24 hours.</p>
-                    <button onClick={() => setSubmitted(false)} className="btn-secondary text-sm py-2.5 px-6">
-                      Submit Another Request
-                    </button>
-                  </div>
-                ) : (
-                  <>
-                    <h2 className="text-2xl font-black text-gray-900 mb-2">Book Your Free Consultation</h2>
-                    <p className="text-gray-500 text-sm mb-6">Fill in your details and a senior consultant will contact you within 24 hours.</p>
-
-                    <form onSubmit={handleSubmit} className="space-y-5">
-                      <div className="grid sm:grid-cols-2 gap-5">
-                        <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">Full Name *</label>
-                          <input
-                            type="text" name="name" required value={form.name} onChange={handleChange}
-                            placeholder="Dr. / Prof. Your Name"
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 outline-none text-sm transition-all"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">Email Address *</label>
-                          <input
-                            type="email" name="email" required value={form.email} onChange={handleChange}
-                            placeholder="your@institution.edu"
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 outline-none text-sm transition-all"
-                          />
-                        </div>
-                      </div>
-                      <div className="grid sm:grid-cols-2 gap-5">
-                        <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">Phone Number</label>
-                          <input
-                            type="tel" name="phone" value={form.phone} onChange={handleChange}
-                            placeholder="+91 XXXXX XXXXX"
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 outline-none text-sm transition-all"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-semibold text-gray-700 mb-1.5">Institution / Organization</label>
-                          <input
-                            type="text" name="institution" value={form.institution} onChange={handleChange}
-                            placeholder="University / Institute Name"
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 outline-none text-sm transition-all"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Service of Interest *</label>
-                        <select
-                          name="service" required value={form.service} onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 outline-none text-sm transition-all bg-white"
-                        >
-                          <option value="">Select a service...</option>
-                          {services.map((s) => <option key={s} value={s}>{s}</option>)}
-                        </select>
-                      </div>
-                      <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Message / Research Goals</label>
-                        <textarea
-                          name="message" rows={4} value={form.message} onChange={handleChange}
-                          placeholder="Briefly describe your research goals or challenges..."
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 outline-none text-sm transition-all resize-none"
-                        />
-                      </div>
-                      <button type="submit" className="w-full btn-primary justify-center text-base py-4">
-                        Request Free Consultation
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </button>
-                      <p className="text-xs text-gray-400 text-center">
-                        By submitting, you agree to our Privacy Policy. Your information is 100% confidential.
-                      </p>
-                    </form>
-                  </>
-                )}
-              </div>
-            </div>
-          </div>
+          </Box>
         </div>
-      </section>
 
-      {/* Map placeholder */}
-      <section className="pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-indigo-100 to-blue-100 h-64 flex items-center justify-center border border-indigo-100">
-            <div className="text-center">
-              <div className="text-5xl mb-3">📍</div>
-              <div className="font-bold text-gray-700 text-lg">Researcher Connect Innovation & Impact Pvt. Ltd.</div>
-              <div className="text-gray-500 text-sm mt-1">Pune, Maharashtra, India — 411001</div>
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 mt-3 text-indigo-600 text-sm font-semibold hover:underline">
-                View on Google Maps →
-              </a>
+        {/* CTA */}
+        <section
+          className="mt-8 overflow-hidden rounded-[14px] bg-cover bg-center shadow-[0_10px_25px_rgba(25,30,80,0.12)]"
+          style={{ backgroundImage: `url(${bannerBg})` }}
+        >
+          <div className="flex min-h-[145px] flex-col items-center justify-between gap-5 px-6 py-7 text-white sm:flex-row sm:px-10 lg:px-14">
+            <div className="max-w-[600px] text-center sm:text-left">
+              <h2 className="text-[26px] font-extrabold">
+                Let’s Start a Conversation
+              </h2>
+              <p className="mt-3 text-[14px] font-semibold leading-[1.7]">
+                Whether you have a question or want to explore a partnership,
+                we’d love to hear from you.
+              </p>
             </div>
+
+            <button className="group flex h-[54px] min-w-[230px] items-center justify-center gap-3 rounded-[6px] bg-white text-[13px] font-extrabold text-[#3f16f5] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              Get in Touch Today
+              <ArrowRight size={16} className="transition group-hover:translate-x-1" />
+            </button>
           </div>
-        </div>
+        </section>
       </section>
-    </>
-  )
+    </main>
+  );
+}
+
+/* Components */
+
+function Input({ className = "", ...props }) {
+  return (
+    <input
+      {...props}
+      className={`h-[52px] w-full rounded-[6px] border border-[#dbe0ee] px-4 text-[12px] font-semibold text-[#1d2545] outline-none transition placeholder:text-[#77809a] focus:border-[#563BFF] focus:ring-4 focus:ring-[#563BFF]/10 ${className}`}
+    />
+  );
+}
+
+function ContactInfo({ icon: Icon, bg, color, title, lines }) {
+  return (
+    <div className="flex items-start gap-4">
+      <div
+        className="flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-full"
+        style={{ backgroundColor: bg, color }}
+      >
+        <Icon size={23} />
+      </div>
+      <div>
+        <h4 className="text-[14px] font-extrabold">{title}</h4>
+        {lines.map((line, i) => (
+          <p
+            key={i}
+            className={`text-[12px] font-bold leading-[1.7] ${
+              i === 0 ? "text-[#2200d8]" : "text-[#424b68]"
+            }`}
+          >
+            {line}
+          </p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SectionTitle({ title }) {
+  return (
+    <div className="my-8 text-center">
+      <h2 className="text-[18px] font-extrabold">{title}</h2>
+      <div className="mx-auto mt-2 h-[3px] w-[38px] rounded-full bg-[#13c7d5]" />
+    </div>
+  );
+}
+
+function ConnectCard({ icon: Icon, color, title, text, action }) {
+  return (
+    <div className="group rounded-[12px] border border-[#e8eaf7] bg-white p-6 shadow-[0_8px_25px_rgba(30,40,90,0.06)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_38px_rgba(86,59,255,0.14)]">
+      <div className="flex items-start gap-4">
+        <div
+          className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-full"
+          style={{ backgroundColor: `${color}18`, color }}
+        >
+          <Icon size={25} />
+        </div>
+        <div>
+          <h3 className="text-[14px] font-extrabold">{title}</h3>
+          <p className="mt-3 text-[11px] font-semibold leading-[1.7] text-[#505a74]">
+            {text}
+          </p>
+          <button className="mt-4 flex items-center gap-2 text-[12px] font-extrabold text-[#3f16f5]">
+            {action}
+            <ArrowRight size={14} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Box({ children }) {
+  return (
+    <div className="rounded-[12px] border border-[#e8eaf7] bg-white p-6 shadow-[0_8px_25px_rgba(30,40,90,0.06)]">
+      {children}
+    </div>
+  );
+}
+
+function OfficeCard({ img, title, lines }) {
+  return (
+    <div className="mb-7 flex gap-4">
+      <img
+        src={img}
+        alt={title}
+        className="h-[120px] w-[150px] shrink-0 rounded-[8px] object-cover"
+      />
+      <div>
+        <h4 className="text-[14px] font-extrabold">{title}</h4>
+        {lines.map((line, i) => (
+          <p
+            key={i}
+            className="text-[12px] font-bold leading-[1.7] text-[#3d4665]"
+          >
+            {line}
+          </p>
+        ))}
+        <button className="mt-3 flex items-center gap-2 text-[12px] font-extrabold text-[#563BFF]">
+          View on Map <MapPin size={14} />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function Social({ icon: Icon, bg, color = "white" }) {
+  return (
+    <button
+      className="flex h-[38px] w-[38px] items-center justify-center rounded-full transition hover:-translate-y-1"
+      style={{ backgroundColor: bg, color }}
+    >
+      <Icon size={18} />
+    </button>
+  );
 }
