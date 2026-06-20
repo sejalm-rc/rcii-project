@@ -80,12 +80,9 @@ const navItems = [
     label: "Resources",
     path: "/resources",
     dropdown: [
-     
-      { label: "Our Team", path: "/team" },
-      { label: "Careers", path: "/careers" },
-      { label: "Contact Us", path: "/contact" },
-      { label: "Privacy Policy", path: "/privacy-policy" },
-      { label: "Terms & Conditions", path: "/terms-conditions" },
+      { label: "Blog", path: "/blogs" },
+      { label: "How to Get Your Research Published in High-Impact Journals Research & Publishing", path: "/how-to-get-blog" },
+      
     ],
   },
 
@@ -132,7 +129,7 @@ export default function Navbar() {
               </p>
 
               <p
-                className={`font-extrabold text-[7px] uppercase tracking-[3.5px] mt-[4px] ${
+                className={`font-bold text-[7px] uppercase tracking-[3.5px] mt-[4px] ${
                   location.pathname === "/" ? "text-[#111827]" : "text-white"
                 }`}
               >
@@ -214,7 +211,7 @@ export default function Navbar() {
   }`}
 >
   <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-    <span className="text-[18px] font-extrabold text-[#07073F]">Menu</span>
+    <span className="text-[18px] font-bold text-[#07073F]">Menu</span>
 
     <button
       onClick={() => setMobileOpen(false)}
