@@ -27,6 +27,7 @@ import Blogs from '../pages/resources/Blogs.jsx'
 import HowToGet from '../pages/resources/HowToGet.jsx'
 import InnovationIP from '../pages/Innovation/InnovationIP.jsx'
 import Publisher from '../pages/publisher/Publisher.jsx'
+import MarketingStrategic from '../pages/publisher/MarketingStrategic.jsx'
 
 function AppRoutes() {
   return (
@@ -58,6 +59,8 @@ function AppRoutes() {
        <Route path="/blogs" element={<Blogs />} />
        <Route path="/how-to-get-blog" element={<HowToGet />} />
        <Route path="/publishers" element={<Publisher />} />
+       <Route path="/marketing-strategic" element={<MarketingStrategic />} />
+
 
     </Routes>
   )
