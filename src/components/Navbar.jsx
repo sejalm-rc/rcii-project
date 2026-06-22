@@ -43,6 +43,7 @@ const navItems = [
     label: "Publishers",
     path: "/publishers",
     dropdown: [
+       { label: "Marketing Strategic", path: "/marketing-strategic" },
       { label: "Journal Hosting", path: "/journal-hosting" },
       { label: "Editorial Systems", path: "/editorial-systems" },
       { label: "DOI Solutions", path: "/doi-solutions" },
