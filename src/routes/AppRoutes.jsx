@@ -27,6 +27,9 @@ import Blogs from '../pages/resources/Blogs.jsx'
 import HowToGet from '../pages/resources/HowToGet.jsx'
 import InnovationIP from '../pages/Innovation/InnovationIP.jsx'
 import Publisher from '../pages/publisher/Publisher.jsx'
+import IndexingSupport from '../pages/publisher/IndexingSupport.jsx'
+import EditorialSupport from '../pages/publisher/EditorialSupport.jsx'
+import TechnologicalSolutions from '../pages/publisher/TechnologicalSolutions.jsx'
 
 function AppRoutes() {
   return (
@@ -58,6 +61,9 @@ function AppRoutes() {
        <Route path="/blogs" element={<Blogs />} />
        <Route path="/how-to-get-blog" element={<HowToGet />} />
        <Route path="/publishers" element={<Publisher />} />
+       <Route path="/indexing-support" element={<IndexingSupport />} />
+      <Route path="/editorial-support" element={<EditorialSupport />} />
+      <Route path="/technological-solutions" element={<TechnologicalSolutions />} />
 
     </Routes>
   )

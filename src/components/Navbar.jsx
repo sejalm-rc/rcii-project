@@ -43,11 +43,12 @@ const navItems = [
     label: "Publishers",
     path: "/publishers",
     dropdown: [
-      { label: "Journal Hosting", path: "/journal-hosting" },
-      { label: "Editorial Systems", path: "/editorial-systems" },
-      { label: "DOI Solutions", path: "/doi-solutions" },
-      { label: "Indexing Services", path: "/indexing-services" },
-      { label: "Publishing Consultancy", path: "/publishing-consultancy" },
+      // { label: "Journal Hosting", path: "/journal-hosting" },
+      { label: "Editorial Support", path: "/editorial-support" },
+      // { label: "DOI Solutions", path: "/doi-solutions" },
+      { label: "Indexing Support", path: "/indexing-support" },
+      // { label: "Publishing Consultancy", path: "/publishing-consultancy" },
+      { label: "Technological Solutions", path: "/technological-solutions" },
     ],
   },
 
