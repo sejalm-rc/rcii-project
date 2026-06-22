@@ -1,129 +1,459 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import SectionTitle from '../components/SectionTitle.jsx'
+import React from "react";
+import {
+  Eye,
+  Target,
+  Gem,
+  Users,
+  Landmark,
+  BookOpen,
+  Lightbulb,
+  Globe2,
+  ShieldCheck,
+  Award,
+  Network,
+  Mail,
+  ArrowRight,
+  CheckCircle,
+  UserRound,
+  BarChart3,
+  FileText,
+  HandHeart,
+  BadgeCheck,
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import heroImg from "../assets/bgabout.png";
+const stats = [
+  {
+    icon: Users,
+    value: "10K+",
+    label: "Researchers\nEmpowered",
+    color: "text-[#5A38FF]",
+  },
+  {
+    icon: Landmark,
+    value: "500+",
+    label: "Institutions\nServed",
+    color: "text-[#08A7C2]",
+  },
+  {
+    icon: BookOpen,
+    value: "300+",
+    label: "Journals\nSupported",
+    color: "text-[#553BFF]",
+  },
+  {
+    icon: Lightbulb,
+    value: "2K+",
+    label: "Patents\nAssisted",
+    color: "text-[#FF9B1A]",
+  },
+  {
+    icon: Globe2,
+    value: "25+",
+    label: "Countries\nWorldwide",
+    color: "text-[#553BFF]",
+  },
+];
 
-const team = [
-  { name: 'Dr. Rajesh Patil', role: 'Founder & CEO', expertise: 'Research Policy & Accreditation', avatar: 'RP', color: 'from-indigo-500 to-blue-600' },
-  { name: 'Dr. Anjali Mehta', role: 'Chief Research Officer', expertise: 'Publication Strategy & Scopus', avatar: 'AM', color: 'from-purple-500 to-pink-600' },
-  { name: 'Prof. Suresh Kumar', role: 'Head of Institutional Consulting', expertise: 'NAAC, NIRF, QS Rankings', avatar: 'SK', color: 'from-cyan-500 to-teal-600' },
-  { name: 'Dr. Priyanka Joshi', role: 'Director, Grant Services', expertise: 'DST, DBT, SERB, Horizon Europe', avatar: 'PJ', color: 'from-amber-500 to-orange-600' },
-]
+const purpose = [
+  {
+    icon: Eye,
+    title: "Our Mission",
+    iconBg: "from-[#6B49FF] to-[#3518E8]",
+    titleColor: "text-[#563BFF]",
+    text: "To empower researchers and organizations through ethical services, innovative technology, and data-driven solutions that enhance research quality, visibility, and impact.",
+  },
+  {
+    icon: Target,
+    title: "Our Vision",
+    iconBg: "from-[#17BBD1] to-[#0789A8]",
+    titleColor: "text-[#08A8C3]",
+    text: "To be the most trusted global partner in research advancement, innovation, and impact—driving a future where research creates meaningful change.",
+  },
+  {
+    icon: Gem,
+    title: "Our Purpose",
+    iconBg: "from-[#6B49FF] to-[#3518E8]",
+    titleColor: "text-[#563BFF]",
+    text: "To connect knowledge, technology, and people to accelerate research, foster innovation, and deliver measurable impact for a better world.",
+  },
+];
 
-const milestones = [
-  { year: '2018', title: 'Founded in Pune', desc: 'Started with 5 researchers and a vision to democratize research excellence.' },
-  { year: '2019', title: '100 Institutions', desc: 'Reached our first 100 institutional clients across India.' },
-  { year: '2021', title: 'Global Expansion', desc: 'Extended services to 25 countries across Asia, Middle East, and Africa.' },
-  { year: '2022', title: 'Technology Launch', desc: 'Launched proprietary research analytics and journal matching platform.' },
-  { year: '2024', title: '500+ Institutions', desc: 'Crossed 500 institutional partnerships and 10,000 individual researchers.' },
-  { year: '2025', title: 'ISO Certified', desc: 'Achieved ISO 9001:2015 certification for research consulting quality.' },
-]
+const values = [
+  {
+    icon: ShieldCheck,
+    title: "Integrity",
+    text: "We uphold the highest ethical standards in everything we do.",
+    color: "text-[#563BFF]",
+    bg: "bg-[#F3F0FF]",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Excellence",
+    text: "We are committed to accuracy, continuous improvement.",
+    color: "text-[#08A7C2]",
+    bg: "bg-[#EAF8FB]",
+  },
+  {
+    icon: Users,
+    title: "Collaboration",
+    text: "We believe in the power of partnerships and shared success.",
+    color: "text-[#563BFF]",
+    bg: "bg-[#F3F0FF]",
+  },
+  {
+    icon: Lightbulb,
+    title: "Innovation",
+    text: "We embrace technology and new ideas to solve real-world challenges.",
+    color: "text-[#08A7C2]",
+    bg: "bg-[#EAF8FB]",
+  },
+  {
+    icon: HandHeart,
+    title: "Impact",
+    text: "We measure success by the positive change we create.",
+    color: "text-[#563BFF]",
+    bg: "bg-[#F3F0FF]",
+  },
+  {
+    icon: Globe2,
+    title: "Inclusivity",
+    text: "We are committed to accessibility, diversity, and global reach.",
+    color: "text-[#08A7C2]",
+    bg: "bg-[#EAF8FB]",
+  },
+];
+
+const leadership = [
+  {
+    icon: UserRound,
+    label: "Experts &\nResearchers",
+    color: "text-[#563BFF]",
+    bg: "bg-[#F3F0FF]",
+  },
+  {
+    icon: BadgeCheck,
+    label: "Technologists &\nDevelopers",
+    color: "text-[#08A7C2]",
+    bg: "bg-[#EAF8FB]",
+  },
+  {
+    icon: UserRound,
+    label: "Publication &\nIP Specialists",
+    color: "text-[#563BFF]",
+    bg: "bg-[#F3F0FF]",
+  },
+  {
+    icon: Users,
+    label: "Data & Analytics\nProfessionals",
+    color: "text-[#08A7C2]",
+    bg: "bg-[#EAF8FB]",
+  },
+];
+
+const why = [
+  "Ethical, Transparent & Researcher-Centric Approach",
+  "End-to-End Solutions Across the Research Lifecycle",
+  "Advanced Technology Platforms for Research Management",
+  "Global Standards, Local Understanding",
+  "Proven Impact Across Institutions and Researchers",
+  "Dedicated Support and Long-Term Partnership",
+];
 
 export default function About() {
   return (
-    <>
-      {/* Page Header */}
-      <section className="pt-28 pb-16 bg-gradient-to-br from-indigo-50 via-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 border border-indigo-100">
-                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
-                About RCII
-              </div>
-              <h1 className="text-4xl sm:text-5xl font-black text-gray-900 mb-6 leading-tight">
-                Pioneering Research Excellence <span className="gradient-text">Since 2018</span>
-              </h1>
-              <p className="text-lg text-gray-500 leading-relaxed mb-6">
-                Researcher Connect Innovation & Impact Pvt. Ltd. (RCII) is India's premier research consulting and academic services platform. We believe every researcher and institution deserves access to world-class guidance, technology, and networks.
-              </p>
-              <p className="text-gray-500 leading-relaxed mb-8">
-                From a small team of passionate researchers in Pune, we have grown into a global platform serving 500+ institutions, 10,000+ researchers, and 200+ journals across 50 countries.
-              </p>
-              <div className="flex gap-4">
-                <Link to="/contact" className="btn-primary">Work With Us</Link>
-                <Link to="/services" className="btn-secondary">Our Services</Link>
-              </div>
+    <main className="w-full bg-white pt-[70px] text-[#101936]">
+      {/* HERO */}
+
+  <section className="py-6 relative overflow-hidden min-h-[320px] sm:min-h-[420px] lg:min-h-[470px] bg-white">
+        {/* Background image only after 768px */}
+        <div
+          className=" absolute inset-0 bg-cover  bg-no-repeat"
+          style={{
+            backgroundImage: `url(${heroImg})`,
+          }}
+        />
+      
+        {/* Mobile soft background */}
+        <div className=" absolute" />
+      
+        {/* Optional left readable overlay */}
+        <div className="" />
+      
+        <div className="relative z-20 max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-14 h-full">
+          <div className="max-w-[520px] pt-6 sm:pt-8 lg:pt-10 pb-8">
+            <div className="flex flex-wrap items-center gap-3 text-[13px] sm:text-[14px] font-semibold sm:mb-8 mb-5">
+              <Link to="/" className="text-[#6366F1] hover:text-[#4F46E5] transition">
+                Home
+              </Link>
+      
+              <span className="text-gray-400">›</span>
+      <span className="text-gray-500">About Us</span>
             </div>
-            <div className="relative">
-              <img src="/about.png" alt="About RCII" className="rounded-3xl shadow-2xl shadow-indigo-200/40 w-full" />
-              <div className="absolute -bottom-5 -left-5 glass-card rounded-2xl p-4 shadow-xl border border-white/80">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center text-xl">🏆</div>
-                  <div>
-                    <div className="font-black text-gray-900 text-lg">7+ Years</div>
-                    <div className="text-xs text-gray-500">Research Excellence</div>
+      
+            <h1 className="text-[34px] sm:text-[40px] lg:text-[46px] leading-none font-bold text-[#07113F]">
+            About <span className="bg-gradient-to-r from-[#563BFF] to-[#02AFC7] bg-clip-text text-transparent">
+              RCII
+              </span>
+            </h1>
+      
+            <p className="text-[#665fe8] text-[15px] sm:text-[16px] font-bold mt-5 sm:mt-5">
+              Empowering the Global Research Ecosystem
+            </p>
+      
+            <p className="text-[13px] sm:text-[14px] text-[#242a34] leading-[1.9] sm:mt-5 mt-3 max-w-[420px]">
+              Researcher Connect Innovation and Impact Private Limited (RCII)
+              is a global research solutions and technology company committed
+              to advancing research quality, ethics, visibility, and impact.
+            </p>
+
+            
+            <p className="text-[13px] sm:text-[14px] text-[#242a34] leading-[1.9] sm:mt-5 mt-3 max-w-[420px]">
+            We partner with researchers, institutions, publishers, and
+              innovators to build a stronger, more connected research world.
+            </p>
+      
+          
+          </div>
+        </div>
+      </section>
+
+    
+
+      {/* PURPOSE */}
+     <section className="w-full bg-white px-4 py-4 sm:px-6 lg:px-14">
+      <div className="mx-auto max-w-[1320px]">
+        <div className="mb-5 text-center">
+          <h2 className="text-[20px] sm:text-[24px] font-bold text-[#071435]">
+            Our Purpose
+          </h2>
+          <div className="mx-auto mt-2 h-[3px] w-[44px] rounded-full bg-[#13BFD1]" />
+        </div>
+
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          {purpose.map((item, i) => {
+            const Icon = item.icon;
+
+            return (
+              <div
+                key={i}
+                className="group min-h-[270px] rounded-[10px] border border-[#E5E8F5] bg-[#F7F8FF] px-7 py-9 shadow-[0_8px_24px_rgba(33,47,90,0.04)] transition-all duration-300 hover:-translate-y-2 hover:border-[#cfd5ff] hover:shadow-[0_20px_45px_rgba(86,59,255,0.14)]"
+              >
+                <div className="flex flex-col gap-7 sm:flex-row sm:items-center">
+                  <div
+                    className={`flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${item.iconBg} text-white shadow-[0_10px_24px_rgba(86,59,255,0.25)] transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`}
+                  >
+                    <Icon size={30} strokeWidth={2.2} />
                   </div>
+
+                  <h3 className={`text-[18px] font-bold ${item.titleColor}`}>
+                    {item.title}
+                  </h3>
+                </div>
+
+                <p className="mt-5 text-[14px] font-semibold leading-[1.9] text-[#182344]">
+                  {item.text}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+     <section className="w-full bg-white px-4 py-4 sm:px-6 lg:px-14">
+      <div className="mx-auto max-w-[1320px]">
+        <div className="grid grid-cols-1 overflow-hidden rounded-[10px] border border-[#E6E8F6] bg-[#F7F8FF] shadow-[0_8px_24px_rgba(33,47,90,0.05)] sm:grid-cols-2 lg:grid-cols-5">
+          {stats.map((item, index) => {
+            const Icon = item.icon;
+
+            return (
+              <div
+                key={index}
+                className={`group relative flex min-h-[95px] bg-[#F7F8FF] items-center justify-center gap-4 px-6 py-7 transition-all duration-300 hover:bg-white ${
+                  index !== stats.length - 1
+                    ? "lg:border-r lg:border-[#DDE1F0]"
+                    : ""
+                }`}
+              >
+                <Icon
+                  size={43}
+                  strokeWidth={1.8}
+                  className={`${item.color} shrink-0 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110`}
+                />
+
+                <div>
+                  <h3 className="text-[20px] font-bold leading-none text-[#111936]">
+                    {item.value}
+                  </h3>
+                  <p className="mt-2 whitespace-pre-line text-[12px] font-bold leading-[1.25] text-[#1B2342]">
+                    {item.label}
+                  </p>
                 </div>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Mission & Values */}
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { icon: '🎯', title: 'Our Mission', color: 'indigo', desc: 'To democratize access to world-class research consulting services and enable every researcher and institution to achieve their highest potential impact.' },
-              { icon: '👁️', title: 'Our Vision', color: 'blue', desc: 'To be the global standard-bearer for research excellence, recognized by every researcher, institution, and publisher as the partner of first choice.' },
-              { icon: '⭐', title: 'Our Values', color: 'cyan', desc: 'Excellence, Integrity, Innovation, Collaboration, and Impact — these values guide every decision we make for our clients and the global research community.' },
-            ].map((item) => (
-              <div key={item.title} className="p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 shadow-sm text-center">
-                <div className="text-5xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+      {/* VALUES */}
+
+    <section className="w-full bg-white px-4 pb-8 pt-2 sm:px-6 lg:px-14">
+      <div className="mx-auto max-w-[1320px]">
+        <div className="mb-7 text-center">
+          <h2 className="text-[20px] sm:text-[24px] font-bold text-[#071435]">
+            Our Core Values
+          </h2>
+          <div className="mx-auto mt-2 h-[3px] w-[42px] rounded-full bg-[#13BFD1]" />
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+          {values.map((item, i) => {
+            const Icon = item.icon;
+
+            return (
+              <div
+                key={i}
+                className="group flex min-h-[228px] flex-col items-center rounded-[10px] border border-[#E5E8F5] bg-white px-4 py-6 text-center shadow-[0_8px_22px_rgba(33,47,90,0.04)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#CDD4FF] hover:shadow-[0_18px_40px_rgba(86,59,255,0.14)]"
+              >
+                <div
+                  className={`mb-4 flex h-[60px] w-[60px] items-center justify-center rounded-full ${item.bg} ${item.color} transition-all duration-300 ease-out group-hover:scale-110 group-hover:rotate-6`}
+                >
+                  <Icon size={32} strokeWidth={2} />
+                </div>
+
+                <h3 className={`mb-3 text-[15px] font-bold ${item.color}`}>
+                  {item.title}
+                </h3>
+
+                <p className="max-w-[150px] text-[12px] font-bold leading-[1.75] text-[#1F2A48]">
+                  {item.text}
+                </p>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Timeline */}
-      <section className="section-padding bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle eyebrow="Our Journey" title={<>From Startup to <span className="gradient-text">Global Leader</span></>} subtitle="A timeline of milestones that define our growth and commitment to research excellence." />
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-indigo-200 to-blue-200 hidden lg:block" />
-            <div className="space-y-8">
-              {milestones.map((m, i) => (
-                <div key={m.year} className={`flex items-center gap-8 ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
-                  <div className={`flex-1 ${i % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
-                    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                      <div className="text-indigo-600 font-black text-lg mb-1">{m.year}</div>
-                      <h3 className="font-bold text-gray-900 text-base mb-2">{m.title}</h3>
-                      <p className="text-gray-500 text-sm">{m.desc}</p>
+
+      {/* LEADERSHIP + WHY */}
+       <section className="w-full bg-white px-4 pb-8 sm:px-6 lg:px-14">
+      <div className="mx-auto max-w-[1320px] overflow-hidden rounded-[12px] border border-[#E5E8F5] bg-[#F7F8FF]  shadow-[0_8px_24px_rgba(33,47,90,0.04)]">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          {/* LEFT */}
+          <div className="px-6 py-7 sm:px-8 lg:border-r lg:border-[#E2E6F2]">
+            <h3 className="text-[20px]  sm:text-[24px] font-bold text-[#071435]">
+              Our Leadership
+            </h3>
+            <div className="mt-2 h-[3px] w-[44px] rounded-full bg-[#13BFD1]" />
+
+            <p className="mt-4 max-w-[560px] text-[13px] font-bold leading-[1.9] text-[#25304E]">
+              A team of experts, researchers, technologists, and innovators
+              working together to transform the research ecosystem.
+            </p>
+
+            <div className="mt-6 grid grid-cols-2 gap-5 sm:grid-cols-4">
+              {leadership.map((item, i) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={i}
+                    className="group text-center transition-all duration-300 hover:-translate-y-2"
+                  >
+                    <div
+                      className={`mx-auto mb-4 flex h-[60px] w-[60px] items-center justify-center rounded-full ${item.bg} ${item.color} transition-all duration-300 `}
+                    >
+                      <Icon size={32} strokeWidth={2} />
                     </div>
+
+                    <p className="whitespace-pre-line text-[13px] font-semibold leading-[1.35] text-[#17213E]">
+                      {item.label}
+                    </p>
                   </div>
-                  <div className="shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center text-white font-black text-sm shadow-lg z-10 hidden lg:flex">
-                    {i + 1}
-                  </div>
-                  <div className="flex-1 hidden lg:block" />
+                );
+              })}
+            </div>
+
+            <button className="group mx-auto mt-6 flex h-[40px] items-center gap-3 rounded-[5px] border border-[#08A7C2] px-7 text-[13px] font-bold text-[#08A7C2] transition-all duration-300 hover:-translate-y-1 hover:bg-[#08A7C2] hover:text-white">
+              Meet Our Team
+              <ArrowRight
+                size={15}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </button>
+          </div>
+
+          {/* RIGHT */}
+          <div className="px-6 py-7 sm:px-8">
+            <h3 className="text-[20px] sm:text-[24px] font-bold text-[#071435]">
+              Why Choose RCII?
+            </h3>
+            <div className="mt-2 h-[3px] w-[44px] rounded-full bg-[#13BFD1]" />
+
+            <div className="mt-7 space-y-4">
+              {why.map((item, i) => (
+                <div
+                  key={i}
+                  className="group flex items-start gap-4 transition-all duration-300 hover:translate-x-1"
+                >
+                  <CheckCircle
+                    size={20}
+                    className="mt-[1px] shrink-0 text-[#08A7C2] transition-all duration-300 group-hover:scale-110"
+                    fill="#08A7C2"
+                    stroke="white"
+                    strokeWidth={3}
+                  />
+                  <p className="text-[13px] font-semibold leading-[1.5] text-[#17213E] sm:text-[14px]">
+                    {item}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Team */}
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle eyebrow="Leadership Team" title={<>The Experts Behind <span className="gradient-text">Your Success</span></>} subtitle="Our leadership team brings together decades of experience in research, academia, publishing, and technology." />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member) => (
-              <div key={member.name} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-lg hover:shadow-indigo-100/40 transition-all text-center hover:-translate-y-1">
-                <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center text-white font-black text-xl mx-auto mb-4 shadow-lg`}>
-                  {member.avatar}
-                </div>
-                <h3 className="font-bold text-gray-900 text-base">{member.name}</h3>
-                <div className="text-indigo-600 text-sm font-semibold mb-1">{member.role}</div>
-                <div className="text-gray-400 text-xs">{member.expertise}</div>
-              </div>
-            ))}
+      {/* CTA */}
+       <section className="w-full bg-white px-4 pb-10 sm:px-6 lg:px-14">
+      <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-6 rounded-[12px] border border-[#E6E8F6] bg-gradient-to-r from-[#F5F2FF] via-[#F9FAFF] to-[#F3F6FF] px-6 py-6 shadow-[0_8px_24px_rgba(33,47,90,0.04)] sm:flex-row sm:px-10 lg:px-[120px]">
+        <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
+          <div className="flex h-[70px] w-[70px] shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#6B49FF] to-[#3518E8] text-white shadow-[0_12px_28px_rgba(86,59,255,0.28)] transition-all duration-300 ">
+            <Mail size={34} strokeWidth={1.8} />
+          </div>
+
+          <div>
+            <h3 className="text-[24px] font-bold leading-tight text-[#071435]">
+              Let’s Build Impact Together
+            </h3>
+            <p className="mt-2 max-w-[520px] text-[13px] font-bold leading-[1.7] text-[#25304E]">
+              Partner with RCII to accelerate research, drive innovation,
+              and create global impact.
+            </p>
           </div>
         </div>
-      </section>
-    </>
-  )
+
+        <button className="group flex h-[48px] min-w-[170px] items-center justify-center gap-3 rounded-[6px] bg-[#563BFF] px-7 text-[13px] font-bold text-white shadow-[0_10px_24px_rgba(86,59,255,0.24)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#432BDE]">
+          Get in Touch
+          <ArrowRight
+            size={15}
+            className="transition-transform duration-300 group-hover:translate-x-1"
+          />
+        </button>
+      </div>
+    </section>
+    </main>
+  );
+}
+
+function SectionTitle({ title }) {
+  return (
+    <div className="mb-6 text-center">
+      <h2 className="text-[20px] sm:text-[24px] font-bold text-[#111936]">{title}</h2>
+      <div className="mx-auto mt-2 h-[3px] w-[42px] rounded-full bg-[#11BFD2]" />
+    </div>
+  );
 }

@@ -4,7 +4,7 @@ import Home from '../pages/Home.jsx'
 import About from '../pages/About.jsx'
 import Services from '../pages/Services.jsx'
 import Solutions from '../pages/Solutions.jsx'
-import Blog from '../pages/Blog.jsx'
+
 import Contact from '../pages/Contact.jsx'
 import Researches from '../pages/researches/Researches.jsx'
 import ResearcherAnalytics from '../pages/Institutions/ResearchAnalytics.jsx'
@@ -20,8 +20,15 @@ import IpinnoSupport from '../pages/researches/IpinnoSupport.jsx'
 import PubSupport from '../pages/researches/PubSupport.jsx'
 import ReseachResourcesTemplate from '../pages/researches/ResearchResourcesTemplate.jsx'
 import ResearchProfileVisibility from '../pages/researches/ResearchProfileVisibility.jsx'
+<<<<<<< HEAD
 import ResearchFundingGrantsSupport from '../pages/Institutions/ResearchFundingGrantsSupport.jsx'
 import ResearchDataManagement from '../pages/Institutions/ResearchDataManagement.jsx'
+=======
+import Resources from '../pages/resources/Resources.jsx'
+import Blogs from '../pages/resources/Blogs.jsx'
+import HowToGet from '../pages/resources/HowToGet.jsx'
+import InnovationIP from '../pages/Innovation/InnovationIP.jsx'
+>>>>>>> 987d6bbd804e67da50e7e0d7abbba89e84cf31ca
 
 function AppRoutes() {
   return (
@@ -30,7 +37,8 @@ function AppRoutes() {
       <Route path="/about" element={<About />} />
       <Route path="/services" element={<Services />} />
       <Route path="/solutions" element={<Solutions />} />
-      <Route path="/blog" element={<Blog />} />
+      <Route path="/inovation" element={<InnovationIP />} />
+      
       <Route path="/contact" element={<Contact />} />
       <Route path="/researchers" element={<Researches />} />
       <Route path="/author-services" element={<AuthorServices/>} />
@@ -48,6 +56,11 @@ function AppRoutes() {
        <Route path="/research-infrastructure-support" element={<ResearchInfrastructureSupport/>} />
         <Route path="/funding-grants-support" element={<ResearchFundingGrantsSupport/>} />
         <Route path="/research-data-management" element={<ResearchDataManagement/>} />
+       <Route path="/resources" element={<Resources />} />
+       <Route path="/blogs" element={<Blogs />} />
+       <Route path="/how-to-get-blog" element={<HowToGet />} />
+
+
     </Routes>
   )
 }
