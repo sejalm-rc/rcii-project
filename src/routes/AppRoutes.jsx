@@ -20,6 +20,8 @@ import IpinnoSupport from '../pages/researches/IpinnoSupport.jsx'
 import PubSupport from '../pages/researches/PubSupport.jsx'
 import ReseachResourcesTemplate from '../pages/researches/ResearchResourcesTemplate.jsx'
 import ResearchProfileVisibility from '../pages/researches/ResearchProfileVisibility.jsx'
+import ResearchFundingGrantsSupport from '../pages/Institutions/ResearchFundingGrantsSupport.jsx'
+import ResearchDataManagement from '../pages/Institutions/ResearchDataManagement.jsx'
 
 function AppRoutes() {
   return (
@@ -44,7 +46,8 @@ function AppRoutes() {
        <Route path="/rams-platform" element={<RAMSPlatform/>} />
        <Route path="/ranking-support" element={<AccrediationRanking/>} />
        <Route path="/research-infrastructure-support" element={<ResearchInfrastructureSupport/>} />
-
+        <Route path="/funding-grants-support" element={<ResearchFundingGrantsSupport/>} />
+        <Route path="/research-data-management" element={<ResearchDataManagement/>} />
     </Routes>
   )
 }
