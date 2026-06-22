@@ -30,6 +30,7 @@ import Publisher from '../pages/publisher/Publisher.jsx'
 import IndexingSupport from '../pages/publisher/IndexingSupport.jsx'
 import EditorialSupport from '../pages/publisher/EditorialSupport.jsx'
 import TechnologicalSolutions from '../pages/publisher/TechnologicalSolutions.jsx'
+import MarketingStrategic from '../pages/publisher/MarketingStrategic.jsx'
 
 function AppRoutes() {
   return (
@@ -64,6 +65,8 @@ function AppRoutes() {
        <Route path="/indexing-support" element={<IndexingSupport />} />
       <Route path="/editorial-support" element={<EditorialSupport />} />
       <Route path="/technological-solutions" element={<TechnologicalSolutions />} />
+       <Route path="/marketing-strategic" element={<MarketingStrategic />} />
+
 
     </Routes>
   )
