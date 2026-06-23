@@ -49,7 +49,7 @@ const navItems = [
       { label: "Indexing Support", path: "/indexing-support" },
       // { label: "Publishing Consultancy", path: "/publishing-consultancy" },
       { label: "Technological Solutions", path: "/technological-solutions" },
-       { label: "Marketing Strategic", path: "/marketing-strategic" },
+       { label: "Marketing Strategy", path: "/marketing-strategic" },
       { label: "Journal Hosting", path: "/journal-hosting" },
       { label: "Editorial Systems", path: "/editorial-systems" },
       { label: "DOI Solutions", path: "/doi-solutions" },
@@ -64,7 +64,7 @@ const navItems = [
     path: "/resources",
     dropdown: [
       { label: "Blog", path: "/blogs" },
-      { label: "How to Get Your Research Published in High-Impact Journals Research & Publishing", path: "/how-to-get-blog" },
+      { label: "Blog Details", path: "/how-to-get-blog" },
       
     ],
   },
