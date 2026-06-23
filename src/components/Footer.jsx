@@ -117,9 +117,9 @@ export default function Footer() {
         </h3>
 
         <div className="space-y-3">
-          <ContactItem icon={Phone} text="+91 123 456 7890" />
-          <ContactItem icon={Mail} text="info@rcii.in" />
-          <ContactItem icon={MapPin} text="India | Global" />
+          <ContactItem icon={Phone} text="+91 9890917528 | 9960266198 | 7887755544" />
+          <ContactItem icon={Mail} text="info@researcherconnect.com" />
+          <ContactItem icon={MapPin} text="Omkar Nagar, Nagpur, Maharashtra 440027" />
         </div>
       </div>
     </div>
@@ -130,9 +130,9 @@ export default function Footer() {
 
 function ContactItem({ icon: Icon, text }) {
   return (
-    <div className="group flex items-center gap-2 text-[11px] font-medium text-white/75 transition-all duration-300 hover:text-white">
-      <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/35 transition-all duration-300 group-hover:bg-white group-hover:text-[#071B33]">
-        <Icon size={13} />
+    <div className="group flex items-center gap-2 text-[10px] font-medium text-white/75 transition-all duration-300 hover:text-white">
+      <span className="flex h-6 w-6 items-center justify-center  transition-all duration-300  ">
+        <Icon size={12} />
       </span>
       {text}
     </div>
