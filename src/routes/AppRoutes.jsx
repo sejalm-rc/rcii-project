@@ -53,7 +53,7 @@ function AppRoutes() {
       <Route path="/career-growth-resources" element={<CareerGrowthResources/>} />
       <Route path="/research-analytics" element={<ResearcherAnalytics />} />
       <Route path="/research-consulting" element={<ResearchConsulting />} />
-      <Route path="/institutional-repository" element={<InstitutionalRepository/>} />
+      <Route path="/institutions" element={<InstitutionalRepository/>} />
        <Route path="/rams-platform" element={<RAMSPlatform/>} />
        <Route path="/ranking-support" element={<AccrediationRanking/>} />
        <Route path="/research-infrastructure-support" element={<ResearchInfrastructureSupport/>} />

@@ -30,7 +30,7 @@ const navItems = [
       { label: "RAMS Platform", path: "/rams-platform" },
       { label: "Research Analytics", path: "/research-analytics" },
       { label: "Ranking Support", path: "/ranking-support" },
-      { label: "Institutional Repository", path: "/institutional-repository" },
+      // { label: "Institutional Repository", path: "/institutions" },
       // { label: "Research Policy", path: "/research-policy" },
       { label: "Consulting", path: "/research-consulting" },
       { label: "Infrastructure Support", path: "/research-infrastructure-support" },
