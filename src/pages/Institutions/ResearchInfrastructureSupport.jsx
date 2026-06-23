@@ -156,11 +156,11 @@ export default function ResearchInfrastructureSupport() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mt-7">
-                <Link className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
+                <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
                   <Building2 size={18} /> Request Infrastructure Support
                 </Link>
 
-                <Link className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
+                <Link  to="/contact" className="inline-flex items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                   Explore Our Solutions <ArrowRight size={18} />
                 </Link>
               </div>
@@ -357,11 +357,11 @@ export default function ResearchInfrastructureSupport() {
           </div>
 
           <div className="md:col-span-2 xl:col-span-1 flex flex-col sm:flex-row xl:flex-row gap-4 justify-center xl:justify-end w-full xl:w-auto">
-            <Link className="inline-flex justify-center items-center gap-3 bg-white text-[#4424e9] px-6 py-4 rounded-[6px] text-[12px] font-semibold hover:-translate-y-1 transition w-full sm:w-auto whitespace-nowrap">
+            <Link to="/contact" className="inline-flex justify-center items-center gap-3 bg-white text-[#4424e9] px-6 py-3 rounded-[6px] text-[12px] font-semibold hover:-translate-y-1 transition w-full sm:w-auto whitespace-nowrap">
               Request Infrastructure Support <ArrowRight size={17} />
             </Link>
 
-            <Link className="inline-flex justify-center items-center gap-3 border border-white/60 text-white px-6 py-4 rounded-[6px] text-[12px] font-semibold hover:bg-white hover:text-[#4424e9] transition w-full sm:w-auto whitespace-nowrap">
+            <Link to="/contact" className="inline-flex justify-center items-center gap-3 border border-white/60 text-white px-6 py-3 rounded-[6px] text-[12px] font-semibold hover:bg-white hover:text-[#4424e9] transition w-full sm:w-auto whitespace-nowrap">
               Talk to an Expert
             </Link>
           </div>
