@@ -1,9 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  Rocket, Settings, Users, Lock, BarChart3, ShieldCheck, Megaphone,
-  CheckCircle, FileCheck, Database, Target, Monitor, Globe2, ClipboardCheck,
-  TrendingUp, Quote, ArrowRight, Headphones
+  Rocket,
+  Settings,
+  Users,
+  Lock,
+  BarChart3,
+  ShieldCheck,
+  Megaphone,
+  CheckCircle,
+  FileCheck,
+  Database,
+  Target,
+  Monitor,
+  Globe2,
+  ClipboardCheck,
+  TrendingUp,
+  Quote,
+  ArrowRight,
+  Headphones,
 } from "lucide-react";
 
 import heroBg from "../../assets/journalBG.png";
@@ -18,22 +33,104 @@ import profileImg from "../../assets/emly.jpg";
 
 export default function JournalSolutions() {
   const capabilities = [
-    [Rocket, "Journal Launch", "End-to-end support for launching new journals with strong foundations."],
-    [Settings, "Journal Management", "Efficient workflows and systems for smooth journal operations."],
-    [Users, "Peer Review Solutions", "Robust peer review management for quality and integrity."],
-    [Lock, "Open Access Support", "Open access models and compliance with global mandates."],
-    [BarChart3, "Indexing & Visibility", "Strategies to get indexed in leading databases and improve visibility."],
-    [ShieldCheck, "Ethics & Compliance", "Upholding publication ethics, COPE guidelines and best practices."],
-    [Megaphone, "Marketing & Growth", "Targeted promotion and outreach to grow your journal’s impact."],
+    [
+      Rocket,
+      "Journal Launch",
+      "End-to-end support for launching new journals with strong foundations.",
+    ],
+    [
+      Settings,
+      "Journal Management",
+      "Efficient workflows and systems for smooth journal operations.",
+    ],
+    [
+      Users,
+      "Peer Review Solutions",
+      "Robust peer review management for quality and integrity.",
+    ],
+    [
+      Lock,
+      "Open Access Support",
+      "Open access models and compliance with global mandates.",
+    ],
+    [
+      BarChart3,
+      "Indexing & Visibility",
+      "Strategies to get indexed in leading databases and improve visibility.",
+    ],
+    [
+      ShieldCheck,
+      "Ethics & Compliance",
+      "Upholding publication ethics, COPE guidelines and best practices.",
+    ],
+    [
+      Megaphone,
+      "Marketing & Growth",
+      "Targeted promotion and outreach to grow your journal’s impact.",
+    ],
   ];
 
   const solutions = [
-    [launchImg, "Journal Setup & Launch Support", ["Journal scope & aims development", "Editorial board formation", "Author guidelines & policies", "Website & branding setup"]],
-    [workflowImg, "Manuscript Submission & Workflow", ["Submission system setup", "Automated workflow management", "Communication & notifications", "Reviewer & author dashboards"]],
-    [peerImg, "Peer Review Management", ["Reviewer database management", "Double-blind / single-blind review", "Review tracking & reminders", "Decision & recommendation support"]],
-    [productionImg, "Production & Publication", ["Copyediting & typesetting", "XML/HTML/PDF conversion", "DOI assignment & metadata", "Online publication & archiving"]],
-    [indexingImg, "Indexing & Abstracting Support", ["Indexing strategy & selection", "Application & documentation support", "Compliance with indexing guidelines", "Tracking & maintenance"]],
-    [analyticsImg, "Journal Analytics & Reporting", ["Real-time dashboards & reports", "Submission, review & publication metrics", "Citation & usage analytics", "Data-driven insights for growth"]],
+    [
+      launchImg,
+      "Journal Setup & Launch Support",
+      [
+        "Journal scope & aims development",
+        "Editorial board formation",
+        "Author guidelines & policies",
+        "Website & branding setup",
+      ],
+    ],
+    [
+      workflowImg,
+      "Manuscript Submission & Workflow",
+      [
+        "Submission system setup",
+        "Automated workflow management",
+        "Communication & notifications",
+        "Reviewer & author dashboards",
+      ],
+    ],
+    [
+      peerImg,
+      "Peer Review Management",
+      [
+        "Reviewer database management",
+        "Double-blind / single-blind review",
+        "Review tracking & reminders",
+        "Decision & recommendation support",
+      ],
+    ],
+    [
+      productionImg,
+      "Production & Publication",
+      [
+        "Copyediting & typesetting",
+        "XML/HTML/PDF conversion",
+        "DOI assignment & metadata",
+        "Online publication & archiving",
+      ],
+    ],
+    [
+      indexingImg,
+      "Indexing & Abstracting Support",
+      [
+        "Indexing strategy & selection",
+        "Application & documentation support",
+        "Compliance with indexing guidelines",
+        "Tracking & maintenance",
+      ],
+    ],
+    [
+      analyticsImg,
+      "Journal Analytics & Reporting",
+      [
+        "Real-time dashboards & reports",
+        "Submission, review & publication metrics",
+        "Citation & usage analytics",
+        "Data-driven insights for growth",
+      ],
+    ],
   ];
 
   const process = [
@@ -49,11 +146,14 @@ export default function JournalSolutions() {
       {/* HERO */}
       <section
         className="relative min-h-[520px] sm:min-h-[390px] lg:min-h-[420px] bg-cover bg-no-repeat flex items-center"
-        style={{ backgroundImage: `url(${heroBg})`}}
+        style={{ backgroundImage: `url(${heroBg})` }}
       >
         <div className="max-w-[1420px] mx-auto w-full px-4 sm:px-6 lg:px-16 py-14">
-          <div className="max-w-[560px] mt-12">
-            <Link to="/" className="text-[12px] text-[#3d25e6] mb-6 font-medium inline-block">
+          <div className="max-w-[560px] mt-8 sm:mt-10 lg:mt-12">
+            <Link
+              to="/"
+              className="text-[12px] text-[#3d25e6] mb-6 font-medium inline-block"
+            >
               Home &nbsp;›&nbsp; Publishers &nbsp;›&nbsp; Journal Solutions
             </Link>
 
@@ -74,7 +174,7 @@ export default function JournalSolutions() {
               and make a lasting impact.
             </p>
 
-            <div className="flex flex-wrap gap-3 sm:gap-4 mt-6">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-6">
               <Link className="inline-flex items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
                 Explore Our Services <ArrowRight size={18} />
               </Link>
@@ -90,12 +190,17 @@ export default function JournalSolutions() {
       {/* KEY CAPABILITIES */}
       <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 -mt-8 relative z-10">
         <div className="bg-white rounded-[16px] shadow-[0_18px_45px_rgba(27,36,86,0.12)] border border-[#edf0ff] p-5 sm:p-6">
-          <h2 className="text-center text-[18px] sm:text-[22px] font-bold">Key Capabilities</h2>
+          <h2 className="text-center text-[18px] sm:text-[22px] font-bold">
+            Key Capabilities
+          </h2>
           <div className="w-14 h-[3px] bg-[#4424e9] mx-auto mt-2 mb-6" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3 sm:gap-2">
             {capabilities.map(([Icon, title, desc]) => (
-              <div key={title} className="group text-center px-4 py-5 border-r last:border-r-0 border-[#e2e7fb] hover:-translate-y-1 transition-all duration-300">
+              <div
+                key={title}
+                className="group text-center px-4 py-5 border-r last:border-r-0 border-[#e2e7fb] hover:-translate-y-1 transition-all duration-300"
+              >
                 <div className="mx-auto w-[60px] h-[60px] rounded-full bg-[#eeeaff] flex items-center justify-center text-[#4424e9] group-hover:bg-[#4424e9] group-hover:text-white group-hover:scale-110 transition-all duration-300">
                   <Icon size={28} />
                 </div>
@@ -113,23 +218,42 @@ export default function JournalSolutions() {
           Our Journal Solutions
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {solutions.map(([img, title, points]) => (
-            <div key={title} className="bg-white border border-[#e2e7fb] rounded-[14px] px-6 py-4 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300 grid grid-cols-[1fr_130px] gap-4 items-end">
+            <div
+              key={title}
+              className="bg-white border border-[#e2e7fb] rounded-[14px] px-5 py-4 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row sm:items-start gap-4min-h-[175px] gap-3 items-center"
+            >
               <div>
-                <h3 className="text-[16px] leading-6 font-bold mb-4">{title}</h3>
+                <h3 className="text-[16px] leading-6 font-bold mb-3">
+                  {title}
+                </h3>
+
                 {points.map((p) => (
-                  <p key={p} className="flex items-start gap-2 text-[12px] font-medium mb-2">
-                    <CheckCircle size={14} className="text-[#4424e9] shrink-0 mt-[2px]" />
+                  <p
+                    key={p}
+                    className="flex items-start gap-2 text-[12px] font-medium mb-1.5"
+                  >
+                    <CheckCircle
+                      size={13}
+                      className="text-[#4424e9] shrink-0 mt-[2px]"
+                    />
                     {p}
                   </p>
                 ))}
-                <Link className="inline-flex items-center gap-2 text-[#4424e9] text-[12px] font-bold mt-3 hover:translate-x-1 transition">
-                  Learn More <ArrowRight size={15} />
+
+                <Link className="inline-flex items-center gap-2 text-[#4424e9] text-[12px] font-bold mt-2 hover:translate-x-1 transition">
+                  Learn More <ArrowRight size={14} />
                 </Link>
               </div>
 
-              <img src={img} alt="" className="w-full max-h-[160px] object-contain" />
+              <div className="flex-1 text-center sm:text-left">
+                <img
+                  src={img}
+                  alt=""
+                  className="w-[120px] sm:w-[140px] md:w-[145px] h-auto object-contain"
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -153,8 +277,11 @@ export default function JournalSolutions() {
 
                 {index !== process.length - 1 && (
                   <>
-                    <div className="hidden lg:block absolute top-[34px] left-[calc(50%+42px)] w-[105px] border-t-2 border-dashed border-[#9aa0e8]" />
-                    <ArrowRight size={15} className="hidden lg:block absolute top-[27px] left-[calc(50%+140px)] text-[#9aa0e8]" />
+                    <div className="hidden lg:block absolute top-[34px] left-[calc(50%+60px)] w-[105px] border-t-2 border-dashed border-[#9aa0e8]" />
+                    <ArrowRight
+                      size={15}
+                      className="hidden lg:block absolute top-[27px] left-[calc(50%+155px)] text-[#9aa0e8]"
+                    />
                   </>
                 )}
               </div>
@@ -170,7 +297,7 @@ export default function JournalSolutions() {
             Our Impact in Numbers
           </h2>
 
-          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {[
               [FileCheck, "850+", "Journals Supported"],
               [Globe2, "120+", "Countries Reached"],
@@ -178,11 +305,16 @@ export default function JournalSolutions() {
               [ClipboardCheck, "1M+", "Manuscripts Processed"],
               [TrendingUp, "35%", "Average Increase in Journal Visibility"],
             ].map(([Icon, num, label], index) => (
-              <div key={label} className={`flex items-center gap-4 px-2 py-3 ${index !== 4 ? "lg:border-r lg:border-white/25" : ""}`}>
-                <Icon size={34} className="text-white/80 shrink-0" />
+              <div
+                key={label}
+                className={`flex items-center gap-4 px-2 py-3 ${index !== 4 ? "lg:border-r lg:border-white/25" : ""}`}
+              >
+                <Icon size={30} className="text-white/80 shrink-0" />
                 <div>
-                  <h3 className="text-[22px] font-bold leading-none">{num}</h3>
-                  <p className="text-[12px] leading-5 font-medium mt-1">{label}</p>
+                  <h3 className="text-[18px] font-bold leading-none">{num}</h3>
+                  <p className="text-[11px] leading-5 font-medium mt-1">
+                    {label}
+                  </p>
                 </div>
               </div>
             ))}
@@ -198,21 +330,51 @@ export default function JournalSolutions() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
-            ["RCII’s team helped us launch our journal seamlessly. Their expertise in setup, workflows and indexing made all the difference.", "Dr. Maria Thompson", "Editor-in-Chief", "International Journal of Public Health"],
-            ["The peer review management and analytics tools provided by RCII have significantly improved our journal’s quality and efficiency.", "Prof. Arvind Kumar", "Managing Editor", "Journal of Materials Science"],
-            ["RCII’s strategic support increased our visibility and helped us get indexed in top databases. Highly recommended!", "Dr. Sarah Lee", "Publisher", "Health Innovations Journal"],
+            [
+              "RCII’s team helped us launch our journal seamlessly. Their expertise in setup, workflows and indexing made all the difference.",
+              "Dr. Maria Thompson",
+              "Editor-in-Chief",
+              "International Journal of Public Health",
+            ],
+            [
+              "The peer review management and analytics tools provided by RCII have significantly improved our journal’s quality and efficiency.",
+              "Prof. Arvind Kumar",
+              "Managing Editor",
+              "Journal of Materials Science",
+            ],
+            [
+              "RCII’s strategic support increased our visibility and helped us get indexed in top databases. Highly recommended!",
+              "Dr. Sarah Lee",
+              "Publisher",
+              "Health Innovations Journal",
+            ],
           ].map(([text, name, role, org]) => (
-            <div key={name} className="bg-white border border-[#e2e7fb] rounded-[14px] p-5 sm:p-6 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-              <Quote size={25} className="text-[#4F46E5] mb-3" strokeWidth={3} />
-              <p className="text-[12.5px] sm:text-[13px] leading-6 text-[#334155] min-h-0 lg:min-h-[90px]">
+            <div
+              key={name}
+              className="bg-white border border-[#e2e7fb] rounded-[14px] p-5 sm:p-6 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+            >
+              <Quote
+                size={25}
+                className="text-[#4F46E5] mb-3"
+                strokeWidth={3}
+              />
+              <p className="text-[12.5px] sm:text-[13px] leading-6 text-[#334155] min-h-[auto]">
                 "{text}"
               </p>
 
               <div className="flex items-center gap-4 mt-5">
-                <img src={profileImg} alt={name} className="w-[58px] h-[58px] sm:w-[64px] sm:h-[64px] rounded-full object-cover border-2 border-[#eef1ff] shrink-0" />
+                <img
+                  src={profileImg}
+                  alt={name}
+                  className="w-[58px] h-[58px] sm:w-[64px] sm:h-[64px] rounded-full object-cover border-2 border-[#eef1ff] shrink-0"
+                />
                 <div>
-                  <h4 className="font-bold text-[14px] sm:text-[15px]">{name}</h4>
-                  <p className="text-[12px] text-[#475569] font-medium">{role}</p>
+                  <h4 className="font-bold text-[14px] sm:text-[15px]">
+                    {name}
+                  </h4>
+                  <p className="text-[12px] text-[#475569] font-medium">
+                    {role}
+                  </p>
                   <p className="text-[11px] text-[#64748b] mt-1">{org}</p>
                 </div>
               </div>
@@ -230,21 +392,26 @@ export default function JournalSolutions() {
       {/* CTA */}
       <section className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-16 pb-10">
         <div className="bg-gradient-to-r from-[#4421F3] via-[#1B47D8] to-[#0087A8] shadow-[0_15px_40px_rgba(25,55,180,0.25)] rounded-[14px] text-white px-5 sm:px-6 lg:px-7 py-6">
-          <div className="grid grid-cols-1 md:grid-cols-[150px_1fr] xl:grid-cols-[190px_1fr_auto] gap-5 items-center">
+         <div className="grid grid-cols-1 lg:grid-cols-[170px_1fr_auto] gap-6 items-center">
             <div className="flex justify-center md:justify-start">
-              <img src={ctaImg} alt="" className="w-[130px] sm:w-[145px] lg:w-[170px] object-contain hover:scale-105 transition-transform duration-300" />
+              <img
+                src={ctaImg}
+                alt=""
+                className="w-[130px] sm:w-[145px] lg:w-[170px] object-contain hover:scale-105 transition-transform duration-300"
+              />
             </div>
 
             <div className="text-center md:text-left">
-              <h2 className="text-[20px] sm:text-[22px] lg:text-[24px] font-bold leading-tight">
+              <h2 className="text-[18px] sm:text-[18px] lg:text-[19px] font-bold leading-tight">
                 Let’s Build World-Class Journals Together
               </h2>
-              <p className="mt-3 text-[13px] sm:text-[14px] leading-6 text-white/95 max-w-[720px] mx-auto md:mx-0">
-                Partner with RCII for scalable, ethical and impactful journal publishing.
+              <p className="mt-3 text-[13px] sm:text-[15px] leading-6 text-white/95 max-w-[720px] mx-auto md:mx-0">
+                Partner with RCII for scalable, ethical and impactful journal
+                publishing.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center xl:justify-end">
+            <div className="flex flex-col sm:flex-row gap-3 w-full">
               <Link className="inline-flex w-full sm:w-auto items-center justify-center gap-3 bg-white text-[#4424e9] px-5 py-3 rounded-[6px] text-[12px] font-bold hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                 Schedule a Consultation <ArrowRight size={17} />
               </Link>
