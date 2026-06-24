@@ -163,7 +163,7 @@ export default function AccreditationRankingPage() {
   return (
     <div className="min-h-screen bg-[#F7F9FF] text-[#070B3F] font-sans overflow-x-hidden">
       {/* HERO */}
-      <section className="relative overflow-hidden min-h-[320px] sm:min-h-[420px] lg:min-h-[515px] bg-white">
+    <section className="group relative overflow-hidden min-h-[320px] sm:min-h-[420px] lg:min-h-[515px] bg-white">
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-no-repeat "
@@ -221,12 +221,12 @@ export default function AccreditationRankingPage() {
 
             <div className="flex flex-col sm:flex-row gap-3 mt-5 sm:mt-6">
                <Link to="/contact">
-              <button className="w-full sm:w-auto bg-[#4F46E5] text-[14px] text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-[#4338CA] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3">
+              <button className="inline-flex w-auto items-center justify-center gap-2 bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-[12px]">
                 <Building2 size={17} />
                 Request a Consultation
               </button></Link>
  <Link to="/contact">
-              <button className="w-full sm:w-auto bg-white text-[#573BFF] border border-[#CFCBFF] text-[14px] font-semibold px-5 py-3 rounded-lg inline-flex items-center justify-center gap-2 transition-all duration-500 hover:-translate-y-1 hover:shadow-md">
+              <button className="inline-flex w-auto items-center justify-center gap-2 border border-[#4F46E5] text-[#4F46E5] hover:bg-indigo-50 font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-md text-[12px] bg-white/50">
                 Explore Our Services
                 <ArrowRight size={17} />
               </button></Link>

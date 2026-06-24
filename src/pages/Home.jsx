@@ -108,6 +108,7 @@ export default function Home() {
       {/* HERO */}
       <section
         className="
+    group
     relative
     min-h-[650px]
     sm:min-h-[700px]
@@ -118,19 +119,18 @@ export default function Home() {
     bg-no-repeat
     flex
     items-center
+    transition-all
+    duration-700
   "
         style={{
           backgroundImage: `url(${heroBg})`,
         }}
       >
-        {/* Dark Overlay */}
-        {/* <div className="absolute inset-0 bg-black/20"></div> */}
-
         {/* HERO content */}
         <div className="w-full max-w-[465px] mx-6 sm:mx-10 lg:mx-16 mt-14">
           <div className="">
             {/* HERO title */}
-            <h1 className="text-[34px] sm:text-[42px] lg:text-[52px] text-white font-bold leading-[1.1]">
+            <h1 className="text-[34px] sm:text-[42px] lg:text-[52px] text-white font-bold leading-[1.1] transition-all duration-500 hover:translate-x-1">
               Research.
               <br />
               <span className="text-cyan-400">Innovation.</span>
@@ -139,20 +139,20 @@ export default function Home() {
               <span className="text-secondary"> Delivered.</span>
             </h1>
 
-            <p className="mt-6 font-medium text-[16px] text-gray-200 leading-relaxed max-w-xl">
+            <p className="mt-6 font-medium text-[16px] text-gray-200 leading-relaxed max-w-xl transition-all duration-500 hover:text-white">
               Ethical. Transparent. Technology-driven solutions empowering
               researchers, strengthening institutions, enabling publishers, and
               protecting innovations.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-10">
-               <Link to="/contact">
-              <button className="px-5 py-3 rounded-lg text-sm text-white bg-gradient-to-r from-indigo-600 to-violet-600 font-semibold shadow-lg hover:scale-105 transition-all duration-300">
-                Explore Our Services →
-              </button>
-</Link>
-              <button className="flex items-center gap-2 text-sm text-white font-medium">
-                <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center text-[14px]">
+              <Link to="/contact">
+                <button className="px-5 py-3 rounded-lg text-sm text-white bg-gradient-to-r from-indigo-600 to-violet-600 font-semibold shadow-lg hover:scale-105 transition-all duration-300">
+                  Explore Our Services →
+                </button>
+              </Link>
+              <button className="flex items-center gap-2 text-sm text-white font-medium transition-all duration-300 hover:translate-x-1">
+                <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center text-[14px] transition-all duration-300 hover:scale-110 hover:bg-white/10">
                   ▶
                 </div>
                 Watch Our Story
@@ -167,7 +167,10 @@ export default function Home() {
                   const Icon = item.icon;
 
                   return (
-                    <div key={item.title} className="flex items-start gap-2">
+                    <div
+                      key={item.title}
+                      className="flex items-start gap-2 transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+                    >
                       {/* Left Icons Column */}
                       <div className="flex flex-col gap-2 pt-[2px]">
                         <Icon
@@ -183,7 +186,7 @@ export default function Home() {
 
                       {/* Text */}
                       <div>
-                        <h4 className="text-white text-[12px] font-semibold leading-none mt-[7.2px]">
+                        <h4 className="text-white text-[12px] font-semibold leading-none mt-[7.2px] transition-colors duration-300 hover:text-cyan-300">
                           {item.title}
                         </h4>
 
@@ -253,12 +256,12 @@ export default function Home() {
               return (
                 <div
                   key={item.title}
-                  className={`rounded-[14px] border ${styles.card} px-6 py-6 min-h-[340px] flex flex-col shadow-[0_8px_25px_rgba(15,23,42,0.04)]`}
+                  className={`group rounded-[14px] border ${styles.card} px-6 py-6 min-h-[340px] flex flex-col shadow-[0_8px_25px_rgba(15,23,42,0.04)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_18px_40px_rgba(15,23,42,0.10)] hover:border-opacity-100`}
                 >
                   {/* Header */}
                   <div className="flex items-center gap-4">
                     <div
-                      className={`w-14 h-14 rounded-full ${styles.iconBg} flex items-center justify-center`}
+                      className={`w-14 h-14 rounded-full ${styles.iconBg} flex items-center justify-center transition-all duration-500 group-hover:scale-110`}
                     >
                       <Icon
                         size={30}
@@ -266,7 +269,9 @@ export default function Home() {
                       />
                     </div>
 
-                    <h3 className={`text-[16px] font-semibold ${styles.title}`}>
+                    <h3
+                      className={`text-[16px] font-semibold ${styles.title} transition-all duration-300 group-hover:translate-x-1`}
+                    >
                       {item.title}
                     </h3>
                   </div>
@@ -281,7 +286,7 @@ export default function Home() {
                     {item.bullets.map((x) => (
                       <li
                         key={x}
-                        className="flex items-start gap-2 text-[12px] text-[#111827] font-medium"
+                        className="flex items-start gap-2 text-[12px] text-[#111827] font-medium transition-all duration-300 group-hover:translate-x-1"
                       >
                         <Check
                           size={14}
@@ -310,8 +315,7 @@ export default function Home() {
       {/* TECHNOLOGY */}
       <section className="max-w-[1280px] mx-6 sm:mx-10 lg:mx-16 py-2">
         {/* TECHNOLOGY card */}
-        <div className="rounded-[14px] bg-[linear-gradient(110deg,#020817_0%,#03122F_48%,#130B45_100%)] text-white px-5 sm:px-8 lg:px-10 py-8 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-9 items-center shadow-[0_14px_40px_rgba(2,8,23,0.28)] overflow-hidden">
-          {/* Left */}
+        <div className="group rounded-[14px] bg-[linear-gradient(110deg,#020817_0%,#03122F_48%,#130B45_100%)] text-white px-5 sm:px-8 lg:px-10 py-8 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-9 items-center shadow-[0_14px_40px_rgba(2,8,23,0.28)] overflow-hidden transition-all duration-500 hover:shadow-[0_25px_60px_rgba(2,8,23,0.40)]">
           <div>
             <p className="text-[#00D5E8] font-semibold text-[11px] uppercase tracking-[1.5px]">
               Technology & Platforms
@@ -356,11 +360,11 @@ export default function Home() {
                 return (
                   <div
                     key={item.title}
-                    className="text-center px-2 border-r border-white/10 last:border-r-0"
+                    className="group/item text-center px-2 border-r border-white/10 last:border-r-0 transition-all duration-300 hover:-translate-y-1"
                   >
                     <Icon
                       size={30}
-                      className={`mx-auto stroke-[1.7] ${
+                      className={`mx-auto stroke-[1.7] transition-all duration-300 group-hover/item:scale-110 ${
                         item.title === "DOI Solutions" ||
                         item.title === "Conference System"
                           ? "text-[#6D5DFB]"
@@ -368,7 +372,7 @@ export default function Home() {
                       }`}
                     />
 
-                    <h4 className="mt-4 text-[12px] font-semibold text-white">
+                    <h4 className="mt-4 text-[12px] font-semibold text-white transition-all duration-300 group-hover/item:text-[#00D5E8]">
                       {item.title}
                     </h4>
 
@@ -389,14 +393,13 @@ export default function Home() {
             </Link> */}
           </div>
 
-      
           {/* Right Dashboard Image */}
           <div className="relative flex justify-end">
             {/* TECHNOLOGY dashboard image */}
             <img
               src={dashboardPreview}
               alt="Research dashboard"
-              className="w-full max-w-[530px] h-auto lg:h-[330px] rounded-[12px] shadow-[0_20px_45px_rgba(0,0,0,0.35)] border border-white/20 object-cover bg-white"
+              className="w-full max-w-[530px] h-auto lg:h-[330px] rounded-[12px] shadow-[0_20px_45px_rgba(0,0,0,0.35)] border border-white/20 object-cover bg-white transition-all duration-700 group-hover:scale-[1.02] group-hover:shadow-[0_28px_60px_rgba(0,0,0,0.45)]"
             />
           </div>
         </div>
@@ -423,18 +426,21 @@ export default function Home() {
                     : "bg-violet-100 text-violet-600";
 
             return (
-              <div key={num} className="flex items-center gap-4">
+              <div
+                key={num}
+                className="group flex items-center gap-4 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03]"
+              >
                 <div
-                  className={`w-14 h-14 rounded-full flex items-center justify-center ${c}`}
+                  className={`w-14 h-14 rounded-full flex items-center justify-center ${c} transition-all duration-500 group-hover:scale-110 group-hover:rotate-3`}
                 >
                   <Icon size={30} strokeWidth={2.4} />
                 </div>
 
                 <div>
-                  <h3 className="text-[22px] leading-none font-semibold text-[#3F3CFF]">
+                  <h3 className="text-[22px] leading-none font-semibold text-[#3F3CFF] transition-all duration-300 group-hover:scale-105">
                     {num}
                   </h3>
-                  <p className="mt-2 text-[12px] leading-[1.35] font-semibold text-[#111827]">
+                  <p className="mt-2 text-[12px] leading-[1.35] font-semibold text-[#111827] transition-all duration-300 group-hover:text-[#3F3CFF]">
                     {line1}
                     <br />
                     {line2}
@@ -499,29 +505,30 @@ export default function Home() {
 
             return (
               <React.Fragment key={title}>
-                <div className="flex items-start gap-4">
+                <div className="group flex items-start gap-4 transition-all duration-500 hover:-translate-y-2">
                   <div
                     className={`mt-[2px] w-[56px] h-[56px] shrink-0 rounded-full ${c}
   text-white flex items-center justify-center
   ring-4 ring-white
-  shadow-lg`}
+  shadow-lg transition-all duration-500
+  group-hover:scale-110 group-hover:shadow-xl`}
                   >
                     <Icon size={26} strokeWidth={2.3} />
                   </div>
 
                   <div className="pt-[2px]">
-                    <h3 className="text-[16px] font-semibold text-[#4F46E5]">
+                    <h3 className="text-[16px] font-semibold text-[#4F46E5] transition-all duration-300 group-hover:translate-x-1">
                       {title}
                     </h3>
 
-                    <p className="mt-1 text-[11px] leading-[1.6] font-medium text-[#111827]">
+                    <p className="mt-1 text-[11px] leading-[1.6] font-medium text-[#111827] transition-colors duration-300 group-hover:text-[#374151]">
                       {desc}
                     </p>
                   </div>
                 </div>
 
                 {index !== 4 && (
-                  <div className="hidden lg:flex pt-7 text-slate-400">
+                  <div className="hidden lg:flex pt-7 text-slate-400 transition-all duration-300 hover:text-[#4F46E5] hover:translate-x-1">
                     <ArrowRight size={18} strokeWidth={2.5} />
                   </div>
                 )}
