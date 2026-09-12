@@ -92,7 +92,8 @@ const demoPosts = [
 ];
 
 function Blogs() {
-  const [posts, setPosts] = useState(demoPosts);
+  const [posts, setPosts] = useState([]);
+  const [fetchError, setFetchError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
@@ -121,21 +122,43 @@ function Blogs() {
 
   const fetchPosts = useCallback(async (pageNum, search, append = false) => {
     setLoading(true);
+    setFetchError("");
+
     try {
       const res = await blogAPI.getAll({
         page: pageNum,
         limit: 6,
-        search: search || undefined,
+        search: search?.trim() || undefined,
       });
-      const mapped = res.data.data.map(mapBlogToCard);
-      setHasMore(res.data.pagination.page < res.data.pagination.pages);
-      if (mapped.length === 0 && !append) {
-        setPosts(demoPosts);
-      } else {
-        setPosts((prev) => (append ? [...prev, ...mapped] : mapped));
-      }
+
+      // Only accept blogs returned by backend
+      const backendBlogs = Array.isArray(res?.data?.data) ? res.data.data : [];
+
+      const mappedBlogs = backendBlogs.map((blog, index) =>
+        mapBlogToCard(blog, index),
+      );
+
+      const pagination = res?.data?.pagination;
+
+      setHasMore(
+        Boolean(
+          pagination && Number(pagination.page) < Number(pagination.pages),
+        ),
+      );
+
+      setPosts((previousPosts) =>
+        append ? [...previousPosts, ...mappedBlogs] : mappedBlogs,
+      );
     } catch (error) {
-      if (!append) setPosts(demoPosts);
+      console.error("Failed to fetch blogs:", error);
+
+      // Never show demo blogs when API fails
+      if (!append) {
+        setPosts([]);
+      }
+
+      setHasMore(false);
+      setFetchError("Unable to load blogs. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -351,11 +374,112 @@ function Blogs() {
               </Link> */}
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-              {posts.map((p, i) => (
-                <BlogCard key={p.slug || p.title || i} {...p} />
-              ))}
-            </div>
+            {/* Initial loading state */}
+            {loading && posts.length === 0 && (
+              <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                {[1, 2, 3, 4, 5, 6].map((item) => (
+                  <div
+                    key={item}
+                    className="
+          overflow-hidden
+          rounded-[9px]
+          border
+          border-[#e8ebf7]
+          bg-white
+        "
+                  >
+                    <div className="h-[165px] animate-pulse bg-[#edf0f7]" />
+
+                    <div className="space-y-3 p-4">
+                      <div className="h-3 w-[35%] animate-pulse rounded bg-[#edf0f7]" />
+                      <div className="h-4 w-full animate-pulse rounded bg-[#edf0f7]" />
+                      <div className="h-4 w-[80%] animate-pulse rounded bg-[#edf0f7]" />
+                      <div className="h-3 w-full animate-pulse rounded bg-[#edf0f7]" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* API error */}
+            {!loading && fetchError && (
+              <div
+                className="
+      rounded-[10px]
+      border
+      border-red-200
+      bg-red-50
+      px-5
+      py-10
+      text-center
+    "
+              >
+                <p className="text-[13px] font-semibold text-red-600">
+                  {fetchError}
+                </p>
+
+                <button
+                  type="button"
+                  onClick={() => fetchPosts(1, searchTerm)}
+                  className="
+        mt-4
+        rounded-[6px]
+        bg-[#4436c0]
+        px-5
+        py-2
+        text-[12px]
+        font-bold
+        text-white
+        transition
+        hover:bg-[#230fbf]
+      "
+                >
+                  Try Again
+                </button>
+              </div>
+            )}
+
+            {/* No backend blogs */}
+            {!loading && !fetchError && posts.length === 0 && (
+              <div
+                className="
+      rounded-[10px]
+      border
+      border-[#e8ebf7]
+      bg-white
+      px-5
+      py-12
+      text-center
+    "
+              >
+                <FileSearch
+                  size={38}
+                  strokeWidth={1.5}
+                  className="mx-auto text-[#7a839e]"
+                />
+
+                <h3 className="mt-4 text-[16px] font-bold text-[#071044]">
+                  No blogs found
+                </h3>
+
+                <p className="mt-2 text-[12px] text-[#7a839e]">
+                  Published blogs added through the admin panel will appear
+                  here.
+                </p>
+              </div>
+            )}
+
+            {/* Only backend blogs */}
+            {posts.length > 0 && (
+              <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                {posts.map((post, index) => (
+                  <BlogCard
+                    key={post.slug || `${post.title}-${index}`}
+                    {...post}
+                  />
+                ))}
+              </div>
+            )}
 
             {hasMore && (
               <div className="mt-6 flex justify-center">
@@ -488,28 +612,28 @@ function Blogs() {
               </div>
             </div>
 
-           <div className="mt-4 flex gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      handleSubscribe();
-                    }
-                  }}
-                  placeholder="Enter your email address"
-                  className="h-[38px] min-w-0 flex-1 rounded-[5px] border border-[#dce1f1] px-3 text-[11px] font-semibold outline-none focus:border-[#4436c0]"
-                />
+            <div className="mt-4 flex gap-2">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleSubscribe();
+                  }
+                }}
+                placeholder="Enter your email address"
+                className="h-[38px] min-w-0 flex-1 rounded-[5px] border border-[#dce1f1] px-3 text-[11px] font-semibold outline-none focus:border-[#4436c0]"
+              />
 
-                <button
-                  onClick={handleSubscribe}
-                  disabled={loading}
-                  className="h-[38px] rounded-[5px] bg-[#4436c0] px-4 text-[11px] font-bold text-white transition hover:bg-[#230fbf] disabled:cursor-not-allowed disabled:opacity-60"
-                >
-                  {loading ? "Subscribing..." : "Subscribe Now"}
-                </button>
-              </div>
+              <button
+                onClick={handleSubscribe}
+                disabled={loading}
+                className="h-[38px] rounded-[5px] bg-[#4436c0] px-4 text-[11px] font-bold text-white transition hover:bg-[#230fbf] disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {loading ? "Subscribing..." : "Subscribe Now"}
+              </button>
+            </div>
           </div>
         </section>
 
@@ -641,10 +765,11 @@ function BlogCard({ img, tag, title, excerpt, date, author, role, slug }) {
             {title}
           </h3>
 
-          <p className="mt-2 line-clamp-2 text-[11px] font-bold leading-[1.6] text-[#3d4665]">
-            {excerpt ||
-              "Practical steps to improve your manuscript and increase acceptance rates."}
-          </p>
+          {excerpt && (
+            <p className="mt-2 line-clamp-2 text-[11px] font-bold leading-[1.6] text-[#3d4665]">
+              {excerpt}
+            </p>
+          )}
 
           <div className="mt-4 flex items-center gap-3">
             <div className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-[#f0edff]">
