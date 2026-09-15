@@ -13,7 +13,7 @@ const navItems = [
       { label: "Ip & Innovation Support", path: "/ip-innovation-support" },
       {
         label: "Research Resources & Templates",
-        path: "/reserach-resources-templates",
+        path: "/research-resources-templates",
       },
       {
         label: "Research Profiling & Visibility",
@@ -65,7 +65,7 @@ const navItems = [
 
   {
     label: "Innovation & Ip",
-    path: "/inovation",
+    path: "/innovation",
   },
   { label: "About Us", path: "/about" },
 ];
