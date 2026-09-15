@@ -10,7 +10,7 @@ const columns = [
       { name: "Author Services", path: "/author-services" },
       { name: "Publication Support", path: "/publication-support" },
       { name: "Ip & Innovation Support", path: "/ip-innovation-support" },
-      { name: "Research Resources & Templates", path: "/reserach-resources-templates" },
+      { name: "Research Resources & Templates", path: "/research-resources-templates" },
      { name: "Research Profiling & Visibility", path: "/research-profiling-visibility" },
   { name: "Grant & Funding Support", path: "/grant-funding-support" },
       { name: "Career & Growth Resources", path: "/career-growth-resources" },
