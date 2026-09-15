@@ -18,7 +18,7 @@ import CareerGrowthResources from '../pages/researches/CareerGrowthResources.jsx
 import GrantFunding from '../pages/researches/GrantFunding.jsx'
 import IpinnoSupport from '../pages/researches/IpinnoSupport.jsx'
 import PubSupport from '../pages/researches/PubSupport.jsx'
-import ReseachResourcesTemplate from '../pages/researches/ResearchResourcesTemplate.jsx'
+import ResearchResourcesTemplate from '../pages/researches/ResearchResourcesTemplate.jsx'
 import ResearchProfileVisibility from '../pages/researches/ResearchProfileVisibility.jsx'
 import ResearchFundingGrantsSupport from '../pages/Institutions/ResearchFundingGrantsSupport.jsx'
 import ResearchDataManagement from '../pages/Institutions/ResearchDataManagement.jsx'
@@ -49,14 +49,14 @@ function AppRoutes() {
       <Route path="/about" element={<About />} />
       <Route path="/services" element={<Services />} />
       <Route path="/solutions" element={<Solutions />} />
-      <Route path="/inovation" element={<InnovationIP />} />
+      <Route path="/innovation" element={<InnovationIP />} />
       
       <Route path="/contact" element={<Contact />} />
       <Route path="/researchers" element={<Researches />} />
       <Route path="/author-services" element={<AuthorServices/>} />
       <Route path="/publication-support" element={<PubSupport/>} />
       <Route path="/ip-innovation-support" element={<IpinnoSupport/>} />
-      <Route path="/reserach-resources-templates" element={<ReseachResourcesTemplate/>} />
+      <Route path="/research-resources-templates" element={<ResearchResourcesTemplate/>} />
       <Route path="/research-profiling-visibility" element={<ResearchProfileVisibility/>} />
       <Route path="/grant-funding-support" element={<GrantFunding/>} />
       <Route path="/career-growth-resources" element={<CareerGrowthResources/>} />
